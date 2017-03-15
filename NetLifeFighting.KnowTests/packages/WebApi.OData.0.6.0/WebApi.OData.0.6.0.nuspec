@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>WebApi.OData</id>
+    <version>0.6.0</version>
+    <title>WebApi.OData</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://wcf.codeplex.com/license</licenseUrl>
+    <projectUrl>http://wcf.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Contains an OData media type formatter for use with WCF Web API.</description>
+    <summary>Contains an OData media type formatter for use with WCF Web API.</summary>
+    <dependencies>
+      <dependency id="WebApi" version="0.6.0" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.ComponentModel.DataAnnotations" targetFramework=".NETFramework4.0" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

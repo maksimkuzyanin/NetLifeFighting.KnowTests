@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>WebApi.Enhancements</id>
+    <version>0.6.0</version>
+    <title>WebApi.Enhancements</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://wcf.codeplex.com/license</licenseUrl>
+    <projectUrl>http://wcf.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Contains extensions to WebApi including a fluent interface configuration api, IoC support and additional formatters.</description>
+    <summary>Contains extensions to WebApi including a fluent interface configuration api, IoC support and additional formatters.</summary>
+    <dependencies>
+      <dependency id="WebApi" version="0.6.0" />
+    </dependencies>
+  </metadata>
+</package>

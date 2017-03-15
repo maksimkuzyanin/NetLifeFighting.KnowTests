@@ -1,0 +1,60 @@
+﻿/*цвета заднего фона заголовков диалоговых окон*/
+.bootbox.modal.type-success .modal-header {
+	background-color: #5cb85c;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-ms-border-top-left-radius: 5px;
+	-ms-border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.bootbox.modal.type-warning .modal-header {
+	background-color: #f0ad4e;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-ms-border-top-left-radius: 5px;
+	-ms-border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.bootbox.modal.type-danger .modal-header {
+	background-color: #d9534f;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-ms-border-top-left-radius: 5px;
+	-ms-border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.bootbox.modal.type-info .modal-header {
+	background-color: #5bc0de;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-ms-border-top-left-radius: 5px;
+	-ms-border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.bootbox.modal.type-primary .modal-header {
+	background-color: #428bca;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-ms-border-top-left-radius: 5px;
+	-ms-border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}

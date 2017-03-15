@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NetLifeFightingModelStoreContainer" CdmEntityContainer="TestsContext">
+    <EntitySetMapping Name="Answers">
+      <EntityTypeMapping TypeName="NetLifeFightingModel.Answer">
+        <MappingFragment StoreEntitySet="Answer">
+          <ScalarProperty Name="AnswerId" ColumnName="AnswerId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Literal" ColumnName="Literal" />
+          <ScalarProperty Name="IsRight" ColumnName="IsRight" />
+          <ScalarProperty Name="PriorityNo" ColumnName="PriorityNo" />
+          <ScalarProperty Name="QuestId" ColumnName="QuestId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="NetLifeFightingModel.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonAnswers">
+      <EntityTypeMapping TypeName="NetLifeFightingModel.PersonAnswer">
+        <MappingFragment StoreEntitySet="PersonAnswer">
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="TestId" ColumnName="TestId" />
+          <ScalarProperty Name="QuestId" ColumnName="QuestId" />
+          <ScalarProperty Name="AnswerId" ColumnName="AnswerId" />
+          <ScalarProperty Name="PriorityNo" ColumnName="PriorityNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="NetLifeFightingModel.Question">
+        <MappingFragment StoreEntitySet="Question">
+          <ScalarProperty Name="QuestId" ColumnName="QuestId" />
+          <ScalarProperty Name="GroupQuestId" ColumnName="GroupQuestId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Literal" ColumnName="Literal" />
+          <ScalarProperty Name="AnswerType" ColumnName="AnswerType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tests">
+      <EntityTypeMapping TypeName="NetLifeFightingModel.Test">
+        <MappingFragment StoreEntitySet="Test">
+          <ScalarProperty Name="TestId" ColumnName="TestId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ActualDate" ColumnName="ActualDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TestQuestions">
+      <EntityTypeMapping TypeName="NetLifeFightingModel.TestQuestion">
+        <MappingFragment StoreEntitySet="TestQuestion">
+          <ScalarProperty Name="TestId" ColumnName="TestId" />
+          <ScalarProperty Name="QuestId" ColumnName="QuestId" />
+          <ScalarProperty Name="QuestNum" ColumnName="QuestNum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

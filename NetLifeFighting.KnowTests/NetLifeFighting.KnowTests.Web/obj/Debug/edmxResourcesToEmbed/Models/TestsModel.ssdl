@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LifeFightingTestingDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ANSWERS">
+    <Key>
+      <PropertyRef Name="ANSWERID" />
+    </Key>
+    <Property Name="ANSWERID" Type="int" Nullable="false" />
+    <Property Name="TITLE" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="LITERAL" Type="varchar" MaxLength="10" />
+    <Property Name="ISTRUE" Type="bit" />
+    <Property Name="ORDERNO" Type="int" />
+    <Property Name="COLUMNNUM" Type="int" />
+    <Property Name="RELATION" Type="varchar" MaxLength="20" />
+    <Property Name="QUESTID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MAPSANSWERS">
+    <Key>
+      <PropertyRef Name="ANSWERID" />
+    </Key>
+    <Property Name="ANSWERID" Type="int" Nullable="false" />
+    <Property Name="TITLE1" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="LITERAL1" Type="varchar" MaxLength="10" />
+    <Property Name="ORDERONPAGE1" Type="int" />
+    <Property Name="TITLE2" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="LITERAL2" Type="varchar" MaxLength="10" />
+    <Property Name="ORDERONPAGE2" Type="int" />
+    <Property Name="QUESTID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QUESTIONS">
+    <Key>
+      <PropertyRef Name="QUESTID" />
+    </Key>
+    <Property Name="QUESTID" Type="int" Nullable="false" />
+    <Property Name="TITLE" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="ANSWERTYPE" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="TESTID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TESTS">
+    <Key>
+      <PropertyRef Name="TESTID" />
+    </Key>
+    <Property Name="TESTID" Type="int" Nullable="false" />
+    <Property Name="TITLE" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="USERID" />
+    </Key>
+    <Property Name="USERID" Type="int" Nullable="false" />
+    <Property Name="NICKNAME" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USERSANSWERS">
+    <Key>
+      <PropertyRef Name="USERID" />
+      <PropertyRef Name="ANSWERID" />
+    </Key>
+    <Property Name="USERID" Type="int" Nullable="false" />
+    <Property Name="ANSWERID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__ANSWERS__QUESTID__4E88ABD4">
+    <End Role="QUESTIONS" Type="Self.QUESTIONS" Multiplicity="1" />
+    <End Role="ANSWERS" Type="Self.ANSWERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUESTIONS">
+        <PropertyRef Name="QUESTID" />
+      </Principal>
+      <Dependent Role="ANSWERS">
+        <PropertyRef Name="QUESTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MAPSANSWE__QUEST__5165187F">
+    <End Role="QUESTIONS" Type="Self.QUESTIONS" Multiplicity="1" />
+    <End Role="MAPSANSWERS" Type="Self.MAPSANSWERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUESTIONS">
+        <PropertyRef Name="QUESTID" />
+      </Principal>
+      <Dependent Role="MAPSANSWERS">
+        <PropertyRef Name="QUESTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__QUESTIONS__TESTI__4BAC3F29">
+    <End Role="TESTS" Type="Self.TESTS" Multiplicity="1" />
+    <End Role="QUESTIONS" Type="Self.QUESTIONS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TESTS">
+        <PropertyRef Name="TESTID" />
+      </Principal>
+      <Dependent Role="QUESTIONS">
+        <PropertyRef Name="TESTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LifeFightingTestingDBModelStoreContainer">
+    <EntitySet Name="ANSWERS" EntityType="Self.ANSWERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAPSANSWERS" EntityType="Self.MAPSANSWERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QUESTIONS" EntityType="Self.QUESTIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TESTS" EntityType="Self.TESTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERSANSWERS" EntityType="Self.USERSANSWERS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ANSWERS__QUESTID__4E88ABD4" Association="Self.FK__ANSWERS__QUESTID__4E88ABD4">
+      <End Role="QUESTIONS" EntitySet="QUESTIONS" />
+      <End Role="ANSWERS" EntitySet="ANSWERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MAPSANSWE__QUEST__5165187F" Association="Self.FK__MAPSANSWE__QUEST__5165187F">
+      <End Role="QUESTIONS" EntitySet="QUESTIONS" />
+      <End Role="MAPSANSWERS" EntitySet="MAPSANSWERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__QUESTIONS__TESTI__4BAC3F29" Association="Self.FK__QUESTIONS__TESTI__4BAC3F29">
+      <End Role="TESTS" EntitySet="TESTS" />
+      <End Role="QUESTIONS" EntitySet="QUESTIONS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

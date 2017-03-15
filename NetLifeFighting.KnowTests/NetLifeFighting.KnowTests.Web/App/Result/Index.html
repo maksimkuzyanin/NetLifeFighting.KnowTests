@@ -1,0 +1,18 @@
+﻿<div ng-controller="resultCtrl" ng-init="init()">
+	<!-- Результаты тестирования -->
+	<div class="table-responsive" ng-if="testsResults.length">
+		<table class="table table-condensed table-striped">
+			<tr>
+				<th>Тест</th>
+				<th>Количество вопросов</th>
+				<th>Правильные ответы</th>
+			</tr>
+			<tr ng-repeat="testResult in testsResults">
+				<td class="cell-text">{{testResult.testName}}</td>
+				<td class="cell-num">{{testResult.questsCount}}</td>
+				<td class="cell-num">{{testResult.rightQuestsCount}}</td>
+			</tr>
+		</table>
+	</div>
+
+</div>

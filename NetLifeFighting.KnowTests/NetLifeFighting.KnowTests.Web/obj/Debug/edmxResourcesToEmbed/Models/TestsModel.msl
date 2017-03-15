@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LifeFightingTestingDBModelStoreContainer" CdmEntityContainer="TestsContext">
+    <EntitySetMapping Name="ANSWERS">
+      <EntityTypeMapping TypeName="LifeFightingTestingDBModel.ANSWERS">
+        <MappingFragment StoreEntitySet="ANSWERS">
+          <ScalarProperty Name="ANSWERID" ColumnName="ANSWERID" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="LITERAL" ColumnName="LITERAL" />
+          <ScalarProperty Name="ISTRUE" ColumnName="ISTRUE" />
+          <ScalarProperty Name="ORDERNO" ColumnName="ORDERNO" />
+          <ScalarProperty Name="COLUMNNUM" ColumnName="COLUMNNUM" />
+          <ScalarProperty Name="RELATION" ColumnName="RELATION" />
+          <ScalarProperty Name="QUESTID" ColumnName="QUESTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAPSANSWERS">
+      <EntityTypeMapping TypeName="LifeFightingTestingDBModel.MAPSANSWERS">
+        <MappingFragment StoreEntitySet="MAPSANSWERS">
+          <ScalarProperty Name="ANSWERID" ColumnName="ANSWERID" />
+          <ScalarProperty Name="TITLE1" ColumnName="TITLE1" />
+          <ScalarProperty Name="LITERAL1" ColumnName="LITERAL1" />
+          <ScalarProperty Name="ORDERONPAGE1" ColumnName="ORDERONPAGE1" />
+          <ScalarProperty Name="TITLE2" ColumnName="TITLE2" />
+          <ScalarProperty Name="LITERAL2" ColumnName="LITERAL2" />
+          <ScalarProperty Name="ORDERONPAGE2" ColumnName="ORDERONPAGE2" />
+          <ScalarProperty Name="QUESTID" ColumnName="QUESTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QUESTIONS">
+      <EntityTypeMapping TypeName="LifeFightingTestingDBModel.QUESTIONS">
+        <MappingFragment StoreEntitySet="QUESTIONS">
+          <ScalarProperty Name="QUESTID" ColumnName="QUESTID" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="ANSWERTYPE" ColumnName="ANSWERTYPE" />
+          <ScalarProperty Name="TESTID" ColumnName="TESTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TESTS">
+      <EntityTypeMapping TypeName="LifeFightingTestingDBModel.TESTS">
+        <MappingFragment StoreEntitySet="TESTS">
+          <ScalarProperty Name="TESTID" ColumnName="TESTID" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERS">
+      <EntityTypeMapping TypeName="LifeFightingTestingDBModel.USERS">
+        <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="USERID" ColumnName="USERID" />
+          <ScalarProperty Name="NICKNAME" ColumnName="NICKNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERSANSWERS">
+      <EntityTypeMapping TypeName="LifeFightingTestingDBModel.USERSANSWERS">
+        <MappingFragment StoreEntitySet="USERSANSWERS">
+          <ScalarProperty Name="USERID" ColumnName="USERID" />
+          <ScalarProperty Name="ANSWERID" ColumnName="ANSWERID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

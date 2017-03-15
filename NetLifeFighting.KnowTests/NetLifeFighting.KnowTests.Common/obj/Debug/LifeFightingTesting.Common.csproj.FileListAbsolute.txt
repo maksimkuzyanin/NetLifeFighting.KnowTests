@@ -1,0 +1,4 @@
+D:\Projects\LifeFightingTesting\LifeFightingTesting.Common\bin\Debug\LifeFightingTesting.Common.dll
+D:\Projects\LifeFightingTesting\LifeFightingTesting.Common\bin\Debug\LifeFightingTesting.Common.pdb
+D:\Projects\LifeFightingTesting\LifeFightingTesting.Common\obj\Debug\LifeFightingTesting.Common.dll
+D:\Projects\LifeFightingTesting\LifeFightingTesting.Common\obj\Debug\LifeFightingTesting.Common.pdb

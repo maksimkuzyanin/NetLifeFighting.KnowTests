@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LifeFightingTestingDBModelStoreContainer" CdmEntityContainer="LifeFightingTestingDBEntities">
+    <EntitySetMapping Name="ANSWERS">
+      <EntityTypeMapping TypeName="LifeFightingTestingDBModel.Answers">
+        <MappingFragment StoreEntitySet="ANSWERS">
+          <ScalarProperty Name="AnswerId" ColumnName="ANSWERID" />
+          <ScalarProperty Name="Title" ColumnName="TITLE" />
+          <ScalarProperty Name="Literal" ColumnName="LITERAL" />
+          <ScalarProperty Name="IsTrue" ColumnName="ISTRUE" />
+          <ScalarProperty Name="OrderNo" ColumnName="ORDERNO" />
+          <ScalarProperty Name="ColumnNum" ColumnName="COLUMNNUM" />
+          <ScalarProperty Name="Relation" ColumnName="RELATION" />
+          <ScalarProperty Name="QuestId" ColumnName="QUESTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QUESTIONS">
+      <EntityTypeMapping TypeName="LifeFightingTestingDBModel.Questions">
+        <MappingFragment StoreEntitySet="QUESTIONS">
+          <ScalarProperty Name="QuestId" ColumnName="QUESTID" />
+          <ScalarProperty Name="Title" ColumnName="TITLE" />
+          <ScalarProperty Name="AnswerType" ColumnName="ANSWERTYPE" />
+          <ScalarProperty Name="TestId" ColumnName="TESTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TESTS">
+      <EntityTypeMapping TypeName="LifeFightingTestingDBModel.Tests">
+        <MappingFragment StoreEntitySet="TESTS">
+          <ScalarProperty Name="TestId" ColumnName="TESTID" />
+          <ScalarProperty Name="Title" ColumnName="TITLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERS">
+      <EntityTypeMapping TypeName="LifeFightingTestingDBModel.Users">
+        <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="UserId" ColumnName="USERID" />
+          <ScalarProperty Name="Nickname" ColumnName="NICKNAME" />
+          <ScalarProperty Name="Password" ColumnName="PASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="USERSTESTS" TypeName="LifeFightingTestingDBModel.USERSTESTS" StoreEntitySet="USERSTESTS">
+      <EndProperty Name="USERS">
+        <ScalarProperty Name="UserId" ColumnName="USERID" />
+      </EndProperty>
+      <EndProperty Name="TESTS">
+        <ScalarProperty Name="TestId" ColumnName="TESTID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

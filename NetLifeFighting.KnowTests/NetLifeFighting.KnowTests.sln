@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetLifeFighting.KnowTests.Web", "NetLifeFighting.KnowTests.Web\NetLifeFighting.KnowTests.Web.csproj", "{6C9C4C6D-E9A7-466D-8242-113004A672BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetLifeFighting.KnowTests.Tests", "NetLifeFighting.KnowTests.Tests\NetLifeFighting.KnowTests.Tests.csproj", "{D400E56B-A815-4053-B6D6-C5F69BCCDF11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetLifeFighting.KnowTests.Common", "NetLifeFighting.KnowTests.Common\NetLifeFighting.KnowTests.Common.csproj", "{79EB2C21-6E26-42C2-B378-1F9FAD27BC8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetLifeFighting.KnowTests.DAL", "NetLifeFighting.KnowTests.DAL\NetLifeFighting.KnowTests.DAL.csproj", "{DD30BB0B-716D-4ACE-BDF6-A493D21D53EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetLifeFighting.KnowTests.Mapping", "NetLifeFighting.KnowTests.Mapping\NetLifeFighting.KnowTests.Mapping.csproj", "{5F886692-0C88-4197-BDE2-9C5AA297639B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetLifeFighting.KnowTests.Web.DTO", "NetLifeFighting.KnowTests.Web.DTO\NetLifeFighting.KnowTests.Web.DTO.csproj", "{49DD5233-DD32-44CC-89D1-6A3C6E5D69F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C9C4C6D-E9A7-466D-8242-113004A672BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C9C4C6D-E9A7-466D-8242-113004A672BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C9C4C6D-E9A7-466D-8242-113004A672BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C9C4C6D-E9A7-466D-8242-113004A672BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D400E56B-A815-4053-B6D6-C5F69BCCDF11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D400E56B-A815-4053-B6D6-C5F69BCCDF11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D400E56B-A815-4053-B6D6-C5F69BCCDF11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D400E56B-A815-4053-B6D6-C5F69BCCDF11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79EB2C21-6E26-42C2-B378-1F9FAD27BC8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79EB2C21-6E26-42C2-B378-1F9FAD27BC8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79EB2C21-6E26-42C2-B378-1F9FAD27BC8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79EB2C21-6E26-42C2-B378-1F9FAD27BC8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD30BB0B-716D-4ACE-BDF6-A493D21D53EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD30BB0B-716D-4ACE-BDF6-A493D21D53EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD30BB0B-716D-4ACE-BDF6-A493D21D53EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD30BB0B-716D-4ACE-BDF6-A493D21D53EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F886692-0C88-4197-BDE2-9C5AA297639B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F886692-0C88-4197-BDE2-9C5AA297639B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F886692-0C88-4197-BDE2-9C5AA297639B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F886692-0C88-4197-BDE2-9C5AA297639B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49DD5233-DD32-44CC-89D1-6A3C6E5D69F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49DD5233-DD32-44CC-89D1-6A3C6E5D69F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49DD5233-DD32-44CC-89D1-6A3C6E5D69F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49DD5233-DD32-44CC-89D1-6A3C6E5D69F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,33 @@
+﻿<div ng-controller="testsListCtrl" data-ng-init="init()">
+	<div class="panel panel-default panel-acorn">
+		<!-- Default panel contents -->
+		<div class="panel-heading">Актуальные тесты</div>
+		<div class="panel-body">
+			<h3>Повышение квалификации участника группы Лайф-Файтинг</h3>
+		</div>
+		<div class="table-responsive">
+			<table class="table table-condensed table-hover" ng-if="preparedTests.length">
+				<tr>
+					<th>Билет</th>
+					<th>Количество вопросов</th>
+					<th>Время</th>
+					<th>Текущий результат</th>
+					<th>&nbsp;</th>
+				</tr>
+				<tr ng-repeat="preparedTest in preparedTests">
+					<td class="cell-text">{{preparedTest.test.title}}</td>
+					<td class="cell-num">{{preparedTest.questsCount}}</td>
+					<td class="cell-num">{{preparedTest.test.maxTime}}</td>
+					<td class="cell-text">
+						<span class="label label-success" ng-if="preparedTest.personTestResult">
+							{{preparedTest.personTestResult.rightQuests}} / {{preparedTest.questsCount}}
+						</span>
+					</td>
+					<td class="text-center">
+						<button type="button" class="btn btn-success" ng-click="goExam(preparedTest.test.testId)">Начать тестирование</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

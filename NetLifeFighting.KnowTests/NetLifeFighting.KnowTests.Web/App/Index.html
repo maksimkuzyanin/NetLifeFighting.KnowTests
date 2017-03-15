@@ -1,0 +1,108 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!--стили-->
+	<link href="../Content/bootstrap.min.css" rel="stylesheet" />
+
+	<!-- пользовательские стили -->
+	<link href="../Content/custom/login/signin.css" rel="stylesheet" />
+	<link href="../Content/custom/tests/tests.css" rel="stylesheet" />
+	<link href="../Content/custom/tables/tables.css" rel="stylesheet" />
+	<link href="../Content/custom/dialogs/dialogs.css" rel="stylesheet"/>
+	<link href="../Content/custom/menu/menu.css" rel="stylesheet"/>
+
+	<!--библиотеки-->
+	<script src="../Scripts/jquery-1.9.1.min.js"></script>
+	<script src="../Scripts/angular.js"></script>
+	<script src="../Scripts/angular-route.min.js"></script>
+	<script src="../Scripts/underscore.min.js"></script>
+	<script src="../Scripts/angular-animate.js"></script>
+	<script src="../Scripts/angular-ui/ui-bootstrap.js"></script>
+	<script src="../Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+	<script src="../Scripts/bootstrap.js"></script>
+	<script src="../Scripts/bootbox.min.js"></script>
+
+	<!-- константы -->
+	<script src="../js/constants/language.js"></script>
+	<script src="../js/constants/ext-constants-bootbox.js"></script>
+	<script src="../js/constants/answerTypes.js"></script>
+
+	<!--модули-->
+	<script src="../js/screen1.js"></script>
+	<script src="../js/shower.js"></script>
+	<script src="app.js"></script>
+
+	<!--сервисы-->
+	<script src="Services/application.js"></script>
+	<script src="Services/authentication.js"></script>
+
+	<!-- контроллеры -->
+	<script src="Login/loginCtrl.js"></script>
+	<script src="TestsList/testsListCtrl.js"></script>
+	<script src="Test/testCtrl.js"></script>
+	<script src="Result/resultCtrl.js"></script>
+	<!--<script src="Reports/SummaryReport/SummaryReportCtrl.js"></script>
+	<script src="Reports/PersonAverageReport/PersonAverageReportCtrl.js"></script>
+	<script src="Reports/DetailReport/DetailReportCtrl.js"></script>
+	<script src="Admin/AdminCtrl.js"></script>
+	<script src="_angular/services/modalWindowService/modalWindowCtrl.js"></script>-->
+	
+	<title></title>
+</head>
+<body>
+
+	<div class="block-content">
+		<!--<h1 class="title text-center">Система тестирования. Лайф-файтинг</h1>-->
+		<!--content-->
+		<div class="content">
+			<!--<div class="container-fluid">-->
+			<div class="container">
+				
+				<div class="application" ng-app="app">
+					<div class="row">
+						<div class="col-md-12">
+							<div data-ng-controller="MenuController">
+								<div class="menu" ng-show="showMenu()">
+
+									<nav class="navbar">
+										<div class="container-fluid">
+											<div class="navbar-header">
+												<span class="navbar-brand">
+													<img class="logo_little" src="/img/ЛФ_лого.jpg">
+												</span>
+											</div>
+											<div class="collapse navbar-collapse">
+												<ul class="nav nav-pills navbar-right">
+													<li class="active"><a href="javascript:void(0)" ng-click="goToPage('/Login')">Главная</a></li>
+													<li><a href="javascript:void(0)" ng-click="goToPage('/Result')">Результаты</a></li>
+													<li><a href="javascript:void(0)" ng-click="goToPage('/TestsList')">Тесты</a></li>
+													<li><a href="javascript:void(0)" ng-click="logout()">Выйти</a></li>
+												</ul>
+											</div>
+										</div>
+									</nav>
+
+									<!-- информация о пользователе -->
+									<div class="person_info pull-right">
+										<span class="glyphicon glyphicon-user"></span>
+										{{personInfo.nickname}}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							<!-- рисовать содержимое страницы -->
+							<div ng-view></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!--content-->
+		<div class="height-footer-empty"></div>
+	</div>
+</body>
+</html>

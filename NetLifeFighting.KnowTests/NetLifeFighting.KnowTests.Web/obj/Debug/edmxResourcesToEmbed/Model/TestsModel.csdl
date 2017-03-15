@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NetLifeFightingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Answer">
+    <Key>
+      <PropertyRef Name="AnswerId" />
+    </Key>
+    <Property Name="AnswerId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Literal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="IsRight" Type="Boolean" Nullable="false" />
+    <Property Name="PriorityNo" Type="Int32" />
+    <Property Name="QuestId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Question" Relationship="Self.FK__Answer__QuestId__7B7B4DDC" FromRole="Answer" ToRole="Question" />
+    <NavigationProperty Name="PersonAnswers" Relationship="Self.FK__PersonAns__Answe__031C6FA4" FromRole="Answer" ToRole="PersonAnswer" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="PersonId" />
+    </Key>
+    <Property Name="PersonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nickname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="PersonAnswers" Relationship="Self.FK__PersonAns__Perso__004002F9" FromRole="Person" ToRole="PersonAnswer" />
+  </EntityType>
+  <EntityType Name="PersonAnswer">
+    <Key>
+      <PropertyRef Name="PersonId" />
+      <PropertyRef Name="TestId" />
+      <PropertyRef Name="QuestId" />
+      <PropertyRef Name="AnswerId" />
+    </Key>
+    <Property Name="PersonId" Type="Int32" Nullable="false" />
+    <Property Name="TestId" Type="Int32" Nullable="false" />
+    <Property Name="QuestId" Type="Int32" Nullable="false" />
+    <Property Name="AnswerId" Type="Int32" Nullable="false" />
+    <Property Name="PriorityNo" Type="Int32" />
+    <NavigationProperty Name="Answer" Relationship="Self.FK__PersonAns__Answe__031C6FA4" FromRole="PersonAnswer" ToRole="Answer" />
+    <NavigationProperty Name="Person" Relationship="Self.FK__PersonAns__Perso__004002F9" FromRole="PersonAnswer" ToRole="Person" />
+    <NavigationProperty Name="Question" Relationship="Self.FK__PersonAns__Quest__02284B6B" FromRole="PersonAnswer" ToRole="Question" />
+    <NavigationProperty Name="Test" Relationship="Self.FK__PersonAns__TestI__01342732" FromRole="PersonAnswer" ToRole="Test" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="QuestId" />
+    </Key>
+    <Property Name="QuestId" Type="Int32" Nullable="false" />
+    <Property Name="GroupQuestId" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Literal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="AnswerType" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK__Answer__QuestId__7B7B4DDC" FromRole="Question" ToRole="Answer" />
+    <NavigationProperty Name="PersonAnswers" Relationship="Self.FK__PersonAns__Quest__02284B6B" FromRole="Question" ToRole="PersonAnswer" />
+    <NavigationProperty Name="TestQuestions" Relationship="Self.FK__TestQuest__Quest__77AABCF8" FromRole="Question" ToRole="TestQuestion" />
+  </EntityType>
+  <EntityType Name="Test">
+    <Key>
+      <PropertyRef Name="TestId" />
+    </Key>
+    <Property Name="TestId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ActualDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="PersonAnswers" Relationship="Self.FK__PersonAns__TestI__01342732" FromRole="Test" ToRole="PersonAnswer" />
+    <NavigationProperty Name="TestQuestions" Relationship="Self.FK__TestQuest__TestI__76B698BF" FromRole="Test" ToRole="TestQuestion" />
+  </EntityType>
+  <EntityType Name="TestQuestion">
+    <Key>
+      <PropertyRef Name="TestId" />
+      <PropertyRef Name="QuestId" />
+    </Key>
+    <Property Name="TestId" Type="Int32" Nullable="false" />
+    <Property Name="QuestId" Type="Int32" Nullable="false" />
+    <Property Name="QuestNum" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Question" Relationship="Self.FK__TestQuest__Quest__77AABCF8" FromRole="TestQuestion" ToRole="Question" />
+    <NavigationProperty Name="Test" Relationship="Self.FK__TestQuest__TestI__76B698BF" FromRole="TestQuestion" ToRole="Test" />
+  </EntityType>
+  <Association Name="FK__Answer__QuestId__7B7B4DDC">
+    <End Role="Question" Type="Self.Question" Multiplicity="1" />
+    <End Role="Answer" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="QuestId" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="QuestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PersonAns__Answe__031C6FA4">
+    <End Role="Answer" Type="Self.Answer" Multiplicity="1" />
+    <End Role="PersonAnswer" Type="Self.PersonAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Answer">
+        <PropertyRef Name="AnswerId" />
+      </Principal>
+      <Dependent Role="PersonAnswer">
+        <PropertyRef Name="AnswerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PersonAns__Perso__004002F9">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="PersonAnswer" Type="Self.PersonAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="PersonAnswer">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PersonAns__Quest__02284B6B">
+    <End Role="Question" Type="Self.Question" Multiplicity="1" />
+    <End Role="PersonAnswer" Type="Self.PersonAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="QuestId" />
+      </Principal>
+      <Dependent Role="PersonAnswer">
+        <PropertyRef Name="QuestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PersonAns__TestI__01342732">
+    <End Role="Test" Type="Self.Test" Multiplicity="1" />
+    <End Role="PersonAnswer" Type="Self.PersonAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Test">
+        <PropertyRef Name="TestId" />
+      </Principal>
+      <Dependent Role="PersonAnswer">
+        <PropertyRef Name="TestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TestQuest__Quest__77AABCF8">
+    <End Role="Question" Type="Self.Question" Multiplicity="1" />
+    <End Role="TestQuestion" Type="Self.TestQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="QuestId" />
+      </Principal>
+      <Dependent Role="TestQuestion">
+        <PropertyRef Name="QuestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TestQuest__TestI__76B698BF">
+    <End Role="Test" Type="Self.Test" Multiplicity="1" />
+    <End Role="TestQuestion" Type="Self.TestQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Test">
+        <PropertyRef Name="TestId" />
+      </Principal>
+      <Dependent Role="TestQuestion">
+        <PropertyRef Name="TestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TestsContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Answers" EntityType="Self.Answer" />
+    <EntitySet Name="People" EntityType="Self.Person" />
+    <EntitySet Name="PersonAnswers" EntityType="Self.PersonAnswer" />
+    <EntitySet Name="Questions" EntityType="Self.Question" />
+    <EntitySet Name="Tests" EntityType="Self.Test" />
+    <EntitySet Name="TestQuestions" EntityType="Self.TestQuestion" />
+    <AssociationSet Name="FK__Answer__QuestId__7B7B4DDC" Association="Self.FK__Answer__QuestId__7B7B4DDC">
+      <End Role="Question" EntitySet="Questions" />
+      <End Role="Answer" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PersonAns__Answe__031C6FA4" Association="Self.FK__PersonAns__Answe__031C6FA4">
+      <End Role="Answer" EntitySet="Answers" />
+      <End Role="PersonAnswer" EntitySet="PersonAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PersonAns__Perso__004002F9" Association="Self.FK__PersonAns__Perso__004002F9">
+      <End Role="Person" EntitySet="People" />
+      <End Role="PersonAnswer" EntitySet="PersonAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PersonAns__Quest__02284B6B" Association="Self.FK__PersonAns__Quest__02284B6B">
+      <End Role="Question" EntitySet="Questions" />
+      <End Role="PersonAnswer" EntitySet="PersonAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PersonAns__TestI__01342732" Association="Self.FK__PersonAns__TestI__01342732">
+      <End Role="Test" EntitySet="Tests" />
+      <End Role="PersonAnswer" EntitySet="PersonAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TestQuest__Quest__77AABCF8" Association="Self.FK__TestQuest__Quest__77AABCF8">
+      <End Role="Question" EntitySet="Questions" />
+      <End Role="TestQuestion" EntitySet="TestQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TestQuest__TestI__76B698BF" Association="Self.FK__TestQuest__TestI__76B698BF">
+      <End Role="Test" EntitySet="Tests" />
+      <End Role="TestQuestion" EntitySet="TestQuestions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

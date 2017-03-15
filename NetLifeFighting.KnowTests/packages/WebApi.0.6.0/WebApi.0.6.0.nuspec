@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>WebApi</id>
+    <version>0.6.0</version>
+    <title>WebApi</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://wcf.codeplex.com/license</licenseUrl>
+    <projectUrl>http://wcf.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>WCF Web API provides developers the tools to build applications which expose capabilities over HTTP to a range of clients including HTML, JQuery, Atom readers and more. If you are building RESTful applications in .NET, WCF Web API is your platform answer.</description>
+    <summary>WCF Web API provides developers the tools to build applications which expose capabilities over HTTP to a range of clients including HTML, JQuery, Atom readers and more. If you are building RESTful applications in .NET, WCF Web API is your platform answer.</summary>
+    <dependencies>
+      <dependency id="HttpClient" version="0.6.0" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.ServiceModel" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="System.ServiceModel.Activation" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="System.ServiceModel.Web" targetFramework=".NETFramework4.0" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LifeFightingTestingDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ANSWERS">
+    <Key>
+      <PropertyRef Name="ANSWERID" />
+    </Key>
+    <Property Name="ANSWERID" Type="Int32" Nullable="false" />
+    <Property Name="TITLE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LITERAL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ISTRUE" Type="Boolean" />
+    <Property Name="ORDERNO" Type="Int32" />
+    <Property Name="COLUMNNUM" Type="Int32" />
+    <Property Name="RELATION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="QUESTID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="QUESTIONS" Relationship="Self.FK__ANSWERS__QUESTID__4E88ABD4" FromRole="ANSWERS" ToRole="QUESTIONS" />
+  </EntityType>
+  <EntityType Name="MAPSANSWERS">
+    <Key>
+      <PropertyRef Name="ANSWERID" />
+    </Key>
+    <Property Name="ANSWERID" Type="Int32" Nullable="false" />
+    <Property Name="TITLE1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LITERAL1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ORDERONPAGE1" Type="Int32" />
+    <Property Name="TITLE2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LITERAL2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ORDERONPAGE2" Type="Int32" />
+    <Property Name="QUESTID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="QUESTIONS" Relationship="Self.FK__MAPSANSWE__QUEST__5165187F" FromRole="MAPSANSWERS" ToRole="QUESTIONS" />
+  </EntityType>
+  <EntityType Name="QUESTIONS">
+    <Key>
+      <PropertyRef Name="QUESTID" />
+    </Key>
+    <Property Name="QUESTID" Type="Int32" Nullable="false" />
+    <Property Name="TITLE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ANSWERTYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TESTID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ANSWERS" Relationship="Self.FK__ANSWERS__QUESTID__4E88ABD4" FromRole="QUESTIONS" ToRole="ANSWERS" />
+    <NavigationProperty Name="MAPSANSWERS" Relationship="Self.FK__MAPSANSWE__QUEST__5165187F" FromRole="QUESTIONS" ToRole="MAPSANSWERS" />
+    <NavigationProperty Name="TESTS" Relationship="Self.FK__QUESTIONS__TESTI__4BAC3F29" FromRole="QUESTIONS" ToRole="TESTS" />
+  </EntityType>
+  <EntityType Name="TESTS">
+    <Key>
+      <PropertyRef Name="TESTID" />
+    </Key>
+    <Property Name="TESTID" Type="Int32" Nullable="false" />
+    <Property Name="TITLE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="QUESTIONS" Relationship="Self.FK__QUESTIONS__TESTI__4BAC3F29" FromRole="TESTS" ToRole="QUESTIONS" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="USERID" />
+    </Key>
+    <Property Name="USERID" Type="Int32" Nullable="false" />
+    <Property Name="NICKNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USERSANSWERS">
+    <Key>
+      <PropertyRef Name="USERID" />
+      <PropertyRef Name="ANSWERID" />
+    </Key>
+    <Property Name="USERID" Type="Int32" Nullable="false" />
+    <Property Name="ANSWERID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__ANSWERS__QUESTID__4E88ABD4">
+    <End Role="QUESTIONS" Type="Self.QUESTIONS" Multiplicity="1" />
+    <End Role="ANSWERS" Type="Self.ANSWERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUESTIONS">
+        <PropertyRef Name="QUESTID" />
+      </Principal>
+      <Dependent Role="ANSWERS">
+        <PropertyRef Name="QUESTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MAPSANSWE__QUEST__5165187F">
+    <End Role="QUESTIONS" Type="Self.QUESTIONS" Multiplicity="1" />
+    <End Role="MAPSANSWERS" Type="Self.MAPSANSWERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUESTIONS">
+        <PropertyRef Name="QUESTID" />
+      </Principal>
+      <Dependent Role="MAPSANSWERS">
+        <PropertyRef Name="QUESTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__QUESTIONS__TESTI__4BAC3F29">
+    <End Role="TESTS" Type="Self.TESTS" Multiplicity="1" />
+    <End Role="QUESTIONS" Type="Self.QUESTIONS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TESTS">
+        <PropertyRef Name="TESTID" />
+      </Principal>
+      <Dependent Role="QUESTIONS">
+        <PropertyRef Name="TESTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TestsContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ANSWERS" EntityType="Self.ANSWERS" />
+    <EntitySet Name="MAPSANSWERS" EntityType="Self.MAPSANSWERS" />
+    <EntitySet Name="QUESTIONS" EntityType="Self.QUESTIONS" />
+    <EntitySet Name="TESTS" EntityType="Self.TESTS" />
+    <EntitySet Name="USERS" EntityType="Self.USERS" />
+    <EntitySet Name="USERSANSWERS" EntityType="Self.USERSANSWERS" />
+    <AssociationSet Name="FK__ANSWERS__QUESTID__4E88ABD4" Association="Self.FK__ANSWERS__QUESTID__4E88ABD4">
+      <End Role="QUESTIONS" EntitySet="QUESTIONS" />
+      <End Role="ANSWERS" EntitySet="ANSWERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MAPSANSWE__QUEST__5165187F" Association="Self.FK__MAPSANSWE__QUEST__5165187F">
+      <End Role="QUESTIONS" EntitySet="QUESTIONS" />
+      <End Role="MAPSANSWERS" EntitySet="MAPSANSWERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__QUESTIONS__TESTI__4BAC3F29" Association="Self.FK__QUESTIONS__TESTI__4BAC3F29">
+      <End Role="TESTS" EntitySet="TESTS" />
+      <End Role="QUESTIONS" EntitySet="QUESTIONS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

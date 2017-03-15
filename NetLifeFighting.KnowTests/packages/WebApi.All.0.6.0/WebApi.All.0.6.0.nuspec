@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>WebApi.All</id>
+    <version>0.6.0</version>
+    <title>WebApi.All</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://wcf.codeplex.com/license</licenseUrl>
+    <projectUrl>http://wcf.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Includes all WebApi packages. WCF Web API provides developers the tools to build applications which expose capabilities over HTTP to a range of clients including HTML, JQuery, Atom readers and more. If you are building RESTful applications in .NET, WCF Web APIs is your platform answer</description>
+    <summary>Includes all WebApi packages. WCF Web API provides developers the tools to build applications which expose capabilities over HTTP to a range of clients including HTML, JQuery, Atom readers and more. If you are building RESTful applications in .NET, WCF Web APIs is your platform answer</summary>
+    <dependencies>
+      <dependency id="WebApi.Enhancements" version="0.6.0" />
+      <dependency id="WebApi.OData" version="0.6.0" />
+    </dependencies>
+  </metadata>
+</package>

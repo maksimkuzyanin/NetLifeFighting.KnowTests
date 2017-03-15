@@ -1,0 +1,17 @@
+﻿.table.table-thin {
+	width: auto;
+	min-width: 40%;
+}
+
+.table th {
+	text-align: center;
+}
+
+.table td.cell-text {
+	text-align: left;
+}
+
+.table td.cell-num {
+	text-align: center;
+}
+

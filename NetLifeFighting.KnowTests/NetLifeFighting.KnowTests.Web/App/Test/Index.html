@@ -1,0 +1,121 @@
+﻿<div ng-controller="testCtrl" data-ng-init="init()">
+
+	<div class="content content-center">
+		<div class="test">
+			
+			<!-- показать результат -->
+			<div ng-if="showResult">
+				<div style="font-size: 33px;">
+
+					<div class="alert alert-info" ng-if="testResult.isEmptyResult">
+						Пройти тест заново?
+					</div>
+
+					<div class="alert alert-success" ng-if="!testResult.isEmptyResult">
+						Ваш результат <span>{{testResult.rightQuestsCount}}/{{testResult.questsCount}}</span>
+					</div>
+
+					<div class="pager">
+						<button class="btn btn-warning" ng-click="goToPage('/TestsList')">
+							<span class="glyphicon glyphicon-circle-arrow-left"></span> Вернуться к тестам
+						</button>
+
+						<button class="btn btn-primary" ng-click="save()" ng-if="!testResult.isEmptyResult">
+							<span class="glyphicon glyphicon-save"></span> Сохранить результат
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="test-timeline" ng-if="!showResult">
+				<span class="test-timeline-number" ng-repeat="preparedQuest in preparedQuestions" ng-class="{'test-timeline-number-current': preparedQuest.quest.questNum == currentPreparedQuest.quest.questNum}">
+					{{preparedQuest.quest.questNum}}
+				</span>
+			</div>
+
+			<!-- отобразить вопрос -->
+			<div class="test-question" ng-if="!showResult">
+				<div class="test-question-body">
+					<div class="test-question-title">{{currentPreparedQuest.quest.title}}</div>
+					<input type="hidden" name="PREPAREDQUESTID" value="{{currentPreparedQuest.quest.questId}}" />
+
+					<div class="test-question-answers" ng-switch="currentPreparedQuest.quest.answerType">
+
+						<!-- Шаблоны -->
+
+						<!-- Один ответ -->
+						<div class="single" ng-switch-when="S">
+							<div class="test-question-answer" ng-repeat="answer in currentPreparedQuest.answersGroups[0].answers">
+								<div class="radio">
+									<label class="test-question-label">
+										<input type="radio" name="ANSWERID" value="{{answer.answerId}}" class="test-question-input">
+										<span class="test-question-input-text">{{answer.title}}</span>
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<!-- множественный выбор -->
+						<div class="multichoice" ng-switch-when="M">
+							<div class="floating-box" ng-repeat="answersGroup in currentPreparedQuest.answersGroups">
+								<div class="test-question-answer" ng-repeat="answer in answersGroup.answers">
+									<div class="checkbox">
+										<label class="test-question-label">
+											<input type="checkbox" name="ANSWERID" value="{{answer.answerId}}" class="test-question-input">
+											<span class="test-question-input-text">{{answer.title}}</span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- ответы с приоритетом -->
+						<div class="priority" ng-switch-when="P">
+							<div class="test-question-answer" ng-repeat="answer in currentPreparedQuest.answersGroups[0].answers">
+								<div class="checkbox floating-box">
+									<label class="test-question-label">
+										<input type="checkbox" name="ANSWERID" value="{{answer.answerId}}" class="test-question-input" ng-model="checked">
+										<span class="test-question-input-text">{{answer.title}}</span>
+									</label>
+								</div>
+
+								<select name="PRIORITYNO" ng-disabled="!checked">
+									<option ng-repeat="priorityAnswer in currentPreparedQuest.answersGroups[0].answers" ng-if="priorityAnswer.priorityNo" value="priorityAnswer.priorityNo">
+										{{priorityAnswer.priorityNo}}
+									</option>
+								</select>
+							</div>
+						</div>
+
+						<!-- ответы на соответствие -->
+						<div class="conformity" ng-switch-when="C">
+							<div class="test-question-answer" ng-repeat="quest in currentPreparedQuest.questions">
+								<span style="font-size: 14px;">
+									<b>quest.literal</b>.&nbsp;quest.title
+									<input type="hidden" name="QUESTID" value="quest.questId" />
+								</span>
+
+								<select name="ANSWER">
+									<option value="-1">&nbsp;</option>
+									<option ng-repeat="answer in currentPreparedQuest.answersGroups[0].answers" value="answer.answerId">
+										{{answer.title}}
+									</option>
+								</select>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="pager">
+					<div class="next">
+						<button class="btn btn-warning" ng-click="next()">
+							Следующий <span class="glyphicon glyphicon-circle-arrow-right"></span>
+						</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

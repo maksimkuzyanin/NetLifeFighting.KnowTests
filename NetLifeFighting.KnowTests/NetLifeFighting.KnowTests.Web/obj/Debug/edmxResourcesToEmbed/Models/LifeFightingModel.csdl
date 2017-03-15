@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LifeFightingTestingDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Answers">
+    <Key>
+      <PropertyRef Name="AnswerId" />
+    </Key>
+    <Property Name="AnswerId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Literal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="IsTrue" Type="Boolean" />
+    <Property Name="OrderNo" Type="Int32" />
+    <Property Name="ColumnNum" Type="Int32" />
+    <Property Name="Relation" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="QuestId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK__ANSWERS__QUESTID__37A5467C" FromRole="ANSWERS" ToRole="QUESTIONS" />
+  </EntityType>
+  <EntityType Name="Questions">
+    <Key>
+      <PropertyRef Name="QuestId" />
+    </Key>
+    <Property Name="QuestId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AnswerType" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TestId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK__ANSWERS__QUESTID__37A5467C" FromRole="QUESTIONS" ToRole="ANSWERS" />
+    <NavigationProperty Name="Tests" Relationship="Self.FK__QUESTIONS__TESTI__34C8D9D1" FromRole="QUESTIONS" ToRole="TESTS" />
+  </EntityType>
+  <EntityType Name="Tests">
+    <Key>
+      <PropertyRef Name="TestId" />
+    </Key>
+    <Property Name="TestId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK__QUESTIONS__TESTI__34C8D9D1" FromRole="TESTS" ToRole="QUESTIONS" />
+    <NavigationProperty Name="Users" Relationship="Self.USERSTESTS" FromRole="TESTS" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Nickname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Tests" Relationship="Self.USERSTESTS" FromRole="USERS" ToRole="TESTS" />
+  </EntityType>
+  <Association Name="FK__ANSWERS__QUESTID__37A5467C">
+    <End Role="QUESTIONS" Type="LifeFightingTestingDBModel.Questions" Multiplicity="1" />
+    <End Role="ANSWERS" Type="LifeFightingTestingDBModel.Answers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUESTIONS">
+        <PropertyRef Name="QuestId" />
+      </Principal>
+      <Dependent Role="ANSWERS">
+        <PropertyRef Name="QuestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__QUESTIONS__TESTI__34C8D9D1">
+    <End Role="TESTS" Type="LifeFightingTestingDBModel.Tests" Multiplicity="1" />
+    <End Role="QUESTIONS" Type="LifeFightingTestingDBModel.Questions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TESTS">
+        <PropertyRef Name="TestId" />
+      </Principal>
+      <Dependent Role="QUESTIONS">
+        <PropertyRef Name="TestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="USERSTESTS">
+    <End Role="USERS" Type="LifeFightingTestingDBModel.Users" Multiplicity="*" />
+    <End Role="TESTS" Type="LifeFightingTestingDBModel.Tests" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="LifeFightingTestingDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ANSWERS" EntityType="LifeFightingTestingDBModel.Answers" />
+    <EntitySet Name="QUESTIONS" EntityType="LifeFightingTestingDBModel.Questions" />
+    <EntitySet Name="TESTS" EntityType="LifeFightingTestingDBModel.Tests" />
+    <EntitySet Name="USERS" EntityType="LifeFightingTestingDBModel.Users" />
+    <AssociationSet Name="FK__ANSWERS__QUESTID__37A5467C" Association="Self.FK__ANSWERS__QUESTID__37A5467C">
+      <End Role="QUESTIONS" EntitySet="QUESTIONS" />
+      <End Role="ANSWERS" EntitySet="ANSWERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__QUESTIONS__TESTI__34C8D9D1" Association="Self.FK__QUESTIONS__TESTI__34C8D9D1">
+      <End Role="TESTS" EntitySet="TESTS" />
+      <End Role="QUESTIONS" EntitySet="QUESTIONS" />
+    </AssociationSet>
+    <AssociationSet Name="USERSTESTS" Association="Self.USERSTESTS">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="TESTS" EntitySet="TESTS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

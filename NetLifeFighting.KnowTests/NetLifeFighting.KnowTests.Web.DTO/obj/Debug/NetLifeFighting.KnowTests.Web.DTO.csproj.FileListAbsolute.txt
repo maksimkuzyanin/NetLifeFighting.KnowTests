@@ -1,0 +1,14 @@
+D:\Projects\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web.DTO\bin\Debug\NetLifeFighting.KnowTests.Web.DTO.dll
+D:\Projects\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web.DTO\bin\Debug\NetLifeFighting.KnowTests.Web.DTO.pdb
+D:\Projects\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web.DTO\obj\Debug\NetLifeFighting.KnowTests.Web.DTO.dll
+D:\Projects\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web.DTO\obj\Debug\NetLifeFighting.KnowTests.Web.DTO.pdb
+D:\Devs\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web.DTO\bin\Debug\NetLifeFighting.KnowTests.Web.DTO.dll
+D:\Devs\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web.DTO\bin\Debug\NetLifeFighting.KnowTests.Web.DTO.pdb
+D:\Devs\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web.DTO\obj\Debug\NetLifeFighting.KnowTests.Web.DTO.dll
+D:\Devs\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web.DTO\obj\Debug\NetLifeFighting.KnowTests.Web.DTO.pdb
+D:\Projects\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web.DTO\obj\Debug\NetLifeFighting.KnowTests.Web.DTO.csprojResolveAssemblyReference.cache
+D:\Devs\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web.DTO\obj\Debug\NetLifeFighting.KnowTests.Web.DTO.csprojResolveAssemblyReference.cache
+D:\Projects\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web.DTO\bin\Debug\NetLifeFighting.KnowTests.Common.dll
+D:\Projects\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web.DTO\bin\Debug\NetLifeFighting.KnowTests.Common.pdb
+D:\Devs\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web.DTO\bin\Debug\NetLifeFighting.KnowTests.Common.dll
+D:\Devs\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web.DTO\bin\Debug\NetLifeFighting.KnowTests.Common.pdb

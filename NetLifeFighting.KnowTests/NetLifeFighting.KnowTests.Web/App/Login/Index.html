@@ -1,0 +1,24 @@
+﻿<div ng-controller="loginCtrl">
+
+	<!--<h2 class="form-signin-heading">Лайф-файтинг.Тесты</h2>-->
+
+
+	<form class="form-signin">
+		<div class="text-center">
+			<img src="/img/ЛФ_лого.jpg" class="img-circle" />
+		</div>
+
+		<h2 class="form-signin-heading">Лайф-файтинг.Тесты</h2>
+
+		<!--<div>-->
+		<label for="nickname" class="sr-only">Имя пользователя</label>
+		<input type="text" id="nickname" class="form-control" placeholder="Имя пользователя" autofocus ng-model="loginInfo.nickname">
+		<label for="password" class="sr-only">Password</label>
+		<input type="password" id="password" class="form-control" placeholder="Пароль" ng-model="loginInfo.password">
+
+		<button class="btn btn-lg btn-warning btn-block" role="button" ng-click="loginPerson()" ng-disabled="isNotFullLoginInfo()">Войти</button>
+		<!--</div>-->
+
+	</form>
+	
+</div>
