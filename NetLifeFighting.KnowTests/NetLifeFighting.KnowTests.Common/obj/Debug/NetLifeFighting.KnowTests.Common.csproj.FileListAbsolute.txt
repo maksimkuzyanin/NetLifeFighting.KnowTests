@@ -21,3 +21,11 @@ D:\Devs\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\bin\Debug\Ent
 D:\Devs\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\obj\Debug\NetLifeFighting.KnowTests.Common.dll
 D:\Devs\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\obj\Debug\NetLifeFighting.KnowTests.Common.pdb
 D:\Devs\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\obj\Debug\NetLifeFighting.KnowTests.Common.csprojResolveAssemblyReference.cache
+D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\bin\Debug\NetLifeFighting.KnowTests.Common.dll.config
+D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\bin\Debug\NetLifeFighting.KnowTests.Common.dll
+D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\bin\Debug\NetLifeFighting.KnowTests.Common.pdb
+D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\bin\Debug\EntityFramework.dll
+D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\bin\Debug\EntityFramework.xml
+D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\obj\Debug\NetLifeFighting.KnowTests.Common.dll
+D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\obj\Debug\NetLifeFighting.KnowTests.Common.pdb
+D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\obj\Debug\NetLifeFighting.KnowTests.Common.csprojResolveAssemblyReference.cache
