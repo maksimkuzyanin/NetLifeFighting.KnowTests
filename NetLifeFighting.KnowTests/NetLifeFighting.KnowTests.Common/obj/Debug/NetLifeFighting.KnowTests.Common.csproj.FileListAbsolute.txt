@@ -28,4 +28,3 @@ D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.K
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\bin\Debug\EntityFramework.xml
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\obj\Debug\NetLifeFighting.KnowTests.Common.dll
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\obj\Debug\NetLifeFighting.KnowTests.Common.pdb
-D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\obj\Debug\NetLifeFighting.KnowTests.Common.csprojResolveAssemblyReference.cache

@@ -295,4 +295,3 @@ D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.K
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Tests\bin\Debug\zh-Hant\System.Spatial.resources.dll
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Tests\obj\Debug\NetLifeFighting.KnowTests.Tests.dll
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Tests\obj\Debug\NetLifeFighting.KnowTests.Tests.pdb
-D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Tests\obj\Debug\NetLifeFighting.KnowTests.Tests.csprojResolveAssemblyReference.cache

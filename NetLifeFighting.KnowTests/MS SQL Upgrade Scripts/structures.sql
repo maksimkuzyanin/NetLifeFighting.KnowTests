@@ -138,7 +138,8 @@ if not exists (
 	create table [Person] (
 		PersonId int identity(1,1) primary key,
 		Nickname varchar(200) not null,
-		[Password] varchar(200) not null
+		[Password] varchar(200) not null,
+		RoleType int not null default(2) -- 1 - админ, 2 - обычный пользователь
 	);
 end
 GO
