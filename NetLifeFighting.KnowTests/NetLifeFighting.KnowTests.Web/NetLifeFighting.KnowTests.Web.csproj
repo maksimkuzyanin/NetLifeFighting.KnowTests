@@ -284,7 +284,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="img\ЛФ_лого.jpg" />
+    <Content Include="img\LF_logo.jpg" />
     <Content Include="js\constants\answerTypes.js" />
     <Content Include="js\constants\ext-constants-bootbox.js" />
     <Content Include="js\constants\language.js" />
