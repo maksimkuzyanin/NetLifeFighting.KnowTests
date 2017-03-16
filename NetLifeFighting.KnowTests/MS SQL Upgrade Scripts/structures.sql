@@ -17,7 +17,7 @@ if not exists (
 	
 	create table Test (
 		TestId int identity(1,1) primary key,
-		Title varchar(150) not null,
+		Title varchar(150) COLLATE Cyrillic_General_CI_AS not null,
 		MaxTime int,
 		LevelOfDifficulty char(1) not null default('S'),
 		RelevanceStatus char(1) not null default('R'),
@@ -43,7 +43,7 @@ if not exists (
 	create table Question (
 		QuestId int identity(1,1) primary key,
 		GroupQuestId int,
-		Title varchar(500) not null,
+		Title varchar(500) COLLATE Cyrillic_General_CI_AS not null,
 		Literal varchar(10),
 		LevelOfDifficulty char(1) not null default('S'),
 		AnswerType char(1) not null default('S')
@@ -100,7 +100,7 @@ if not exists (
 	*/
 	create table Answer (
 		AnswerId int identity(1,1) primary key,
-		Title varchar(200) not null,
+		Title varchar(200) COLLATE Cyrillic_General_CI_AS not null,
 		Literal varchar(10)
 	);
 end
