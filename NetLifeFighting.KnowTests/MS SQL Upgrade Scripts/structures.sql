@@ -183,6 +183,25 @@ if not exists (
 end
 GO
 
+/*
+	Файловые вложения
+*/
+if not exists (	
+			select 1 
+			from INFORMATION_SCHEMA.TABLES 
+			where TABLE_TYPE='BASE TABLE' and TABLE_NAME='FileAttachment'
+	) begin
+	
+	create table FileAttachment (
+		AttachmentId int identity(1,1) not null,
+		Description varchar(4000) null,
+		AFileName varchar(256) null,
+		QuestId int not null references Question(QuestId),
+		AFile varbinary(max) filestream null
+	);
+end
+GO
+
 -- тестовый пользователь
 -- password: 123456
 insert into [Person] (NICKNAME, [PASSWORD]) values ('_testPerson_', 'e10adc3949ba59abbe56e057f20f883e')
