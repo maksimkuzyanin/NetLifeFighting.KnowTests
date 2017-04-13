@@ -70,10 +70,13 @@
     <Compile Include="Helpers\PasswordHelper.cs" />
     <Compile Include="Messages.cs" />
     <Compile Include="ObjectModel\EntityFramework\Answer.cs" />
+    <Compile Include="ObjectModel\EntityFramework\FileAttachment.cs" />
     <Compile Include="ObjectModel\EntityFramework\IEntity.cs" />
     <Compile Include="ObjectModel\EntityFramework\Person.cs" />
     <Compile Include="ObjectModel\EntityFramework\PersonAnswer.cs" />
     <Compile Include="ObjectModel\EntityFramework\QuestAnswer.cs" />
+    <Compile Include="ObjectModel\EntityFramework\QuestAnswerAttachment.cs" />
+    <Compile Include="ObjectModel\EntityFramework\QuestAttachment.cs" />
     <Compile Include="ObjectModel\EntityFramework\Question.cs" />
     <Compile Include="ObjectModel\EntityFramework\Test.cs" />
     <Compile Include="ObjectModel\EntityFramework\TestQuestion.cs" />

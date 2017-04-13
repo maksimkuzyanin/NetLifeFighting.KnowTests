@@ -34,3 +34,15 @@ D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.K
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Mapping\obj\Debug\NetLifeFighting.KnowTests.Mapping.csprojResolveAssemblyReference.cache
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Mapping\obj\Debug\NetLifeFighting.KnowTests.Mapping.dll
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Mapping\obj\Debug\NetLifeFighting.KnowTests.Mapping.pdb
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Mapping\bin\Debug\NetLifeFighting.KnowTests.Mapping.dll.config
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Mapping\bin\Debug\NetLifeFighting.KnowTests.Mapping.dll
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Mapping\bin\Debug\NetLifeFighting.KnowTests.Mapping.pdb
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Mapping\bin\Debug\AutoMapper.dll
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Mapping\bin\Debug\NetLifeFighting.KnowTests.Common.dll
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Mapping\bin\Debug\NetLifeFighting.KnowTests.Web.DTO.dll
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Mapping\bin\Debug\NetLifeFighting.KnowTests.Common.pdb
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Mapping\bin\Debug\NetLifeFighting.KnowTests.Web.DTO.pdb
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Mapping\bin\Debug\AutoMapper.xml
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Mapping\obj\Debug\NetLifeFighting.KnowTests.Mapping.csprojResolveAssemblyReference.cache
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Mapping\obj\Debug\NetLifeFighting.KnowTests.Mapping.dll
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Mapping\obj\Debug\NetLifeFighting.KnowTests.Mapping.pdb
