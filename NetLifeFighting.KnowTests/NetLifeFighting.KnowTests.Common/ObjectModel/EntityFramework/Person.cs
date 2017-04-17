@@ -36,6 +36,8 @@ namespace NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework
 		/// </summary>
 		public virtual ISet<PersonAnswer> PersonAnswers { get; set; }
 
+		public virtual int RoleType { get; set; }
+
 		/// <summary>
 		/// 
 		/// </summary>

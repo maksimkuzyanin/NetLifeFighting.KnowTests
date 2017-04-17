@@ -66,6 +66,7 @@
     <Compile Include="Enums\AnswerType.cs" />
     <Compile Include="Enums\LevelOfDifficulty.cs" />
     <Compile Include="Enums\RelevanceStatus.cs" />
+    <Compile Include="Enums\RoleType.cs" />
     <Compile Include="Helpers\StringExtension.cs" />
     <Compile Include="Helpers\PasswordHelper.cs" />
     <Compile Include="Messages.cs" />
