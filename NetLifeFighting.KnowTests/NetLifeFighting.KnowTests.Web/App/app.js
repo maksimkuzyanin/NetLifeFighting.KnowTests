@@ -6,7 +6,9 @@
 			.when('/Login', { templateUrl: 'Login/Index.html', controller: 'loginCtrl' })
 			.when('/TestsList', { templateUrl: 'TestsList/Index.html', controller: 'testsListCtrl' })
 			.when('/Test', { templateUrl: 'Test/Index.html', controller: 'testCtrl' })
-			.when('/Result', { templateUrl: 'Result/Index.html', controller: 'resultCtrl' });
+			.when('/Result', { templateUrl: 'Result/Index.html', controller: 'resultCtrl' })
+			.when('/AdminLogin', { templateUrl: 'AdminLogin/Index.html', controller: 'adminLoginCtrl' })
+			.when('/Admin', { templateUrl: 'Admin/Index.html', controller: 'adminCtrl' });
 
 		$routeProvider.otherwise({ redirectTo: '/Login' });
 	})
