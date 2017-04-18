@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework
@@ -6,16 +7,25 @@ namespace NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework
 	[Table("QuestAnswer")]
 	public class QuestAnswer
 	{
+		public QuestAnswer()
+		{
+			QuestAnswerAttachments = new HashSet<QuestAnswerAttachment>();
+		}
+
+		/// <summary>
+		/// Идентификатор связки вопрос-ответ
+		/// </summary>
+		[Key]
+		public int QuestAnswerId { get; set; }
+
 		/// <summary>
 		/// Идентификатор вопроса
 		/// </summary>
-		[Key, Column(Order = 1)]
 		public virtual int QuestId { get; set; }
 
 		/// <summary>
 		/// Идентификатор ответа
 		/// </summary>
-		[Key, Column(Order = 2)]
 		public virtual int AnswerId { get; set; }
 
 		/// <summary>
@@ -45,5 +55,15 @@ namespace NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework
 		/// Номер группы ответов
 		/// </summary>
 		public virtual int? GroupNum { get; set; }
+
+		/// <summary>
+		/// Пояснение к ответу
+		/// </summary>
+		public string Description { get; set; }
+
+		/// <summary>
+		/// Вложения связки вопрос-ответ
+		/// </summary>
+		public virtual ISet<QuestAnswerAttachment> QuestAnswerAttachments { get; set; }
 	}
 }

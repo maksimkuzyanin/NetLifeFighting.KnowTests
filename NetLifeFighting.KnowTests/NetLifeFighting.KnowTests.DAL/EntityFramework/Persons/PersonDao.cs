@@ -3,6 +3,7 @@ using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Linq;
 using EntityFramework.BulkInsert.Extensions;
+using NetLifeFighting.KnowTests.Common.Enums;
 using NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework;
 
 namespace NetLifeFighting.KnowTests.DAL.EntityFramework.Persons
@@ -12,6 +13,11 @@ namespace NetLifeFighting.KnowTests.DAL.EntityFramework.Persons
 		public Person GetByName(string name)
 		{
 			return Query.FirstOrDefault(x => x.Nickname == name);
+		}
+
+		public Person[] GetAllByNameAndRoleType(string name, RoleType role)
+		{
+			return Query.Where(x => x.Nickname == name && x.RoleType == (int) role).ToArray();
 		}
 
 		public PersonAnswer[] GetPersonAnswers(int personId)

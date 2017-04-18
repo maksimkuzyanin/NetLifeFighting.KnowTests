@@ -47,6 +47,21 @@ namespace NetLifeFighting.KnowTests.DAL
 		/// </summary>
 		public DbSet<PersonAnswer> PersonAnswers { get; set; }
 
+		/// <summary>
+		/// Файловые вложения
+		/// </summary>
+		public DbSet<FileAttachment> FileAttachments { get; set; }
+
+		/// <summary>
+		/// Вложения вопроса
+		/// </summary>
+		public DbSet<QuestAttachment> QuestAttachments { get; set; }
+
+		/// <summary>
+		/// Вложения к связке вопрос-ответ
+		/// </summary>
+		public DbSet<QuestAnswerAttachment> QuestAnswerAttachments { get; set; }
+
 		/*protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
 			// настройки для маппинга

@@ -16,6 +16,7 @@ namespace NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework
 		{
 			TestQuestions = new HashSet<TestQuestion>();
 			QuestsAnswers = new HashSet<QuestAnswer>();
+			QuestAttachments = new HashSet<QuestAttachment>();
 		}
 
 		/// <summary>
@@ -80,6 +81,11 @@ namespace NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework
 		/// <summary>
 		/// Ответы
 		/// </summary>
-		public virtual ISet<QuestAnswer> QuestsAnswers { get; set; } 
+		public virtual ISet<QuestAnswer> QuestsAnswers { get; set; }
+
+		/// <summary>
+		/// Вложения вопроса
+		/// </summary>
+		public virtual ISet<QuestAttachment> QuestAttachments { get; set; }
 	}
 }
