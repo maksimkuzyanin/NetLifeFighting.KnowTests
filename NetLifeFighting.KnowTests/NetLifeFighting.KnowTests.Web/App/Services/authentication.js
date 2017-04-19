@@ -23,10 +23,18 @@
 				return this.exists();
 			},
 
-			login: function(credentials) {
-				var deferred = $q.defer();
+			setSessionAuthPerson: function () {
+				if (authenticatedPerson) {
+					// для глобального доступа
+					$window.sessionStorage.authenticatedPerson = JSON.stringify(authenticatedPerson);
+				}
+			},
 
-				$http.post('api/persons/login', credentials)
+			commonDeferLogin: function (url, credentials) {
+				var deferred = $q.defer();
+				var self = this;
+
+				$http.post(url, credentials)
 					.then(function (response) {
 						var result = response.data;
 
@@ -39,8 +47,7 @@
 
 						$timeout(function() {
 							authenticatedPerson = person;
-							// для глобального доступа
-							$window.sessionStorage.authenticatedPerson = JSON.stringify(authenticatedPerson);
+							self.setSessionAuthPerson();
 							deferred.resolve(person);
 						}, 1000);
 					});
@@ -48,30 +55,30 @@
 				return deferred.promise;
 			},
 
-			// вынести общую логику
-			salogin: function (credentials) {
-				var deferred = $q.defer();
+			login: function (credentials) {
 
-				$http.post('api/persons/login', credentials)
-					.then(function (response) {
-						var result = response.data;
+				var studentRole = 1;
 
-						if (!result.isSuccess) {
-							deferred.reject(result.message);
-							return;
-						}
+				var url = "api/persons/student/login";
 
-						var person = result.data;
+				credentials.roleType = studentRole;
 
-						$timeout(function () {
-							authenticatedPerson = person;
-							// для глобального доступа
-							$window.sessionStorage.authenticatedPerson = JSON.stringify(authenticatedPerson);
-							deferred.resolve(person);
-						}, 1000);
-					});
+				return this.commonDeferLogin(url, credentials);
+			},
 
-				return deferred.promise;
+			// сделал в этом сервисе более частные методы,
+			// при этом общую логику вынес для универсальности
+			adminLogin: function (credentials) {
+
+				var adminName = "admin";
+				var adminRole = 1;
+
+				var url = "api/persons/admin/login";
+
+				credentials.nickname = adminName;
+				credentials.roleType = adminRole;
+
+				return this.commonDeferLogin(url, credentials);
 			},
 
 			logout: function () {

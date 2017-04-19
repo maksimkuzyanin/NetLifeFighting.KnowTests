@@ -1,14 +1,9 @@
 ﻿var app = angular.module('app');
 
-app.controller("adminLoginCtrl", function ($scope, $http, $rootScope, $location, authentication, MenuController) {
+app.controller("adminLoginCtrl", function ($scope, $http, $rootScope, $location, authentication) {
 
 	// информация для входа
 	$scope.loginInfo = {};
-
-	// переопределенная функция показа меню
-	MenuController.showMenu = function () {
-		return false;
-	};
 
 	// проверяет заполненность логин/пароль
 	$scope.isNotFullLoginInfo = function () {

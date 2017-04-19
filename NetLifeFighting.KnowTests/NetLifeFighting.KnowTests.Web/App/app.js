@@ -16,8 +16,12 @@
 	.controller('MenuController', function ($scope, $location, $window, authentication) {
 
 		$scope.isAdmin = function () {
+			if ($location.path() === "/AdminLogin") {
+				return true;
+			}
+
 			// роль администратора
-			const adminRole = 1;
+			var adminRole = 1;
 
 			var person = authentication.getPerson();
 			if (person == null) {

@@ -24,7 +24,7 @@ namespace NetLifeFighting.KnowTests.Web.Controllers
 		}
 
 		[HttpPost]
-		[Route("login")]
+		[Route("student/login")]
 		public Result<PersonDto> GetPerson([FromBody]LoginInfoDto loginInfoDto)
 		{
 			var person = _personDao.GetByName(loginInfoDto.Nickname);
