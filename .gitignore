@@ -1,0 +1,16 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/NetLifeFighting.KnowTests/NetLifeFighting.ImportExcel/bin/Debug/NetLifeFighting.ImportExcel.exe
+/NetLifeFighting.KnowTests/NetLifeFighting.ImportExcel/bin/Debug/NetLifeFighting.ImportExcel.exe.config
+/NetLifeFighting.KnowTests/NetLifeFighting.ImportExcel/bin/Debug/NetLifeFighting.ImportExcel.pdb
+/NetLifeFighting.KnowTests/NetLifeFighting.ImportExcel/bin/Debug/Spire.License.dll
+/NetLifeFighting.KnowTests/NetLifeFighting.ImportExcel/bin/Debug/Spire.Pdf.dll
+/NetLifeFighting.KnowTests/NetLifeFighting.ImportExcel/bin/Debug/Spire.Pdf.xml
+/NetLifeFighting.KnowTests/NetLifeFighting.ImportExcel/bin/Debug/Spire.XLS.dll
+/NetLifeFighting.KnowTests/NetLifeFighting.ImportExcel/bin/Debug/Spire.XLS.xml
+/NetLifeFighting.KnowTests/NetLifeFighting.ImportExcel/obj/Debug/NetLifeFighting.ImportExcel.csprojResolveAssemblyReference.cache
+/NetLifeFighting.KnowTests/NetLifeFighting.ImportExcel/obj/Debug/NetLifeFighting.ImportExcel.exe
+/NetLifeFighting.KnowTests/NetLifeFighting.ImportExcel/obj/Debug/NetLifeFighting.ImportExcel.pdb
+/NetLifeFighting.KnowTests/NetLifeFighting.KnowTests.Web.DTO/NetLifeFighting.KnowTests.Web.DTO.csproj.user
