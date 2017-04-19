@@ -35,6 +35,19 @@
 		$rootScope.$on('$locationChangeStart', function (scope, next, current) {
 			authentication.init();
 
+			// страницы входа
+			var loginPages = ['/Login', '/AdminLogin'];
+
+			// redirect to login page if not logged in and trying to access a restricted page
+			var restrictedPage = $.inArray($location.path(), ['/Login', '/AdminLogin']) === -1;
+
+
+			var loggedIn = $rootScope.globals.currentUser;
+			if (restrictedPage && !loggedIn) {
+				$location.path('/login');
+			}
+
+
 			$rootScope.personInfo = authentication.getPerson();
 
 			if (!authentication.isLoggedIn()) {

@@ -48,6 +48,32 @@
 				return deferred.promise;
 			},
 
+			// вынести общую логику
+			salogin: function (credentials) {
+				var deferred = $q.defer();
+
+				$http.post('api/persons/login', credentials)
+					.then(function (response) {
+						var result = response.data;
+
+						if (!result.isSuccess) {
+							deferred.reject(result.message);
+							return;
+						}
+
+						var person = result.data;
+
+						$timeout(function () {
+							authenticatedPerson = person;
+							// для глобального доступа
+							$window.sessionStorage.authenticatedPerson = JSON.stringify(authenticatedPerson);
+							deferred.resolve(person);
+						}, 1000);
+					});
+
+				return deferred.promise;
+			},
+
 			logout: function () {
 				var deferred = $q.defer();
 
