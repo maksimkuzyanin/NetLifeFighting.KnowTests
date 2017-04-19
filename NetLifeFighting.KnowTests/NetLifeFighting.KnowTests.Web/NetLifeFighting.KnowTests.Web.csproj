@@ -203,6 +203,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\AdminLogin\adminLoginCtrl.js" />
+    <Content Include="App\AdminLogin\Index.html" />
+    <Content Include="App\Admin\adminCtrl.js" />
+    <Content Include="App\Admin\Index.html" />
     <Content Include="App\app.js" />
     <Content Include="App\Result\Index.html" />
     <Content Include="App\Result\resultCtrl.js" />
