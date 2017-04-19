@@ -15,8 +15,25 @@
 
 	.controller('MenuController', function ($scope, $location, $window, authentication) {
 
+		$scope.isAdmin = function () {
+			// роль администратора
+			const adminRole = 1;
+
+			var person = authentication.getPerson();
+			if (person == null) {
+				return false;
+			}
+
+			return person.roleType === adminRole;
+		};
+
 		$scope.showMenu = function () {
-			return $location.path() !== '/Login';
+			if ($location.path() === "/Login" || $scope.isAdmin()) {
+				// не показывать меню, если страница логина обычного пользователя
+				// или пользователь работает в админке - там функциональность простенькая
+				return false;
+			}
+			return true;
 		};
 
 		$scope.goToPage = function(path) {
@@ -26,32 +43,31 @@
 		$scope.logout = function() {
 			authentication.logout()
 				.then(function() {
-					$scope.goToPage('/Login');
+					$scope.goToPage("/Login");
 				});
 		};
 	})
 
-	.run(function (authentication, application, $rootScope, $location) {
+	.run(function (authentication, application, $rootScope, $location, $window) {
 		$rootScope.$on('$locationChangeStart', function (scope, next, current) {
 			authentication.init();
 
 			// страницы входа
 			var loginPages = ['/Login', '/AdminLogin'];
 
-			// redirect to login page if not logged in and trying to access a restricted page
-			var restrictedPage = $.inArray($location.path(), ['/Login', '/AdminLogin']) === -1;
+			var restrictedPage = $.inArray($location.path(), loginPages) === -1;
 
-
-			var loggedIn = $rootScope.globals.currentUser;
-			if (restrictedPage && !loggedIn) {
-				$location.path('/login');
+			if (!restrictedPage) {
+				// запомнить, чтобы правильно переходить
+				$window.sessionStorage.LoginPage = $location.path();
 			}
-
 
 			$rootScope.personInfo = authentication.getPerson();
 
+			var currentLoginPage = $window.sessionStorage.LoginPage || '/Login';
+
 			if (!authentication.isLoggedIn()) {
-				$location.path('/Login');
+				$location.path(currentLoginPage);
 			}
 		});
 	});
