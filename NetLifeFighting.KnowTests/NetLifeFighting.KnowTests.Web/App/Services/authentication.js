@@ -55,6 +55,8 @@
 				return deferred.promise;
 			},
 
+			// сделал в этом сервисе более частные методы,
+			// при этом общую логику вынес для универсальности
 			login: function (credentials) {
 
 				var studentRole = 1;
@@ -66,8 +68,6 @@
 				return this.commonDeferLogin(url, credentials);
 			},
 
-			// сделал в этом сервисе более частные методы,
-			// при этом общую логику вынес для универсальности
 			adminLogin: function (credentials) {
 
 				var adminName = "admin";
