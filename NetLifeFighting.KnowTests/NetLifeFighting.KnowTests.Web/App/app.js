@@ -52,18 +52,20 @@
 		};
 	})
 
-	.run(function (authentication, application, $rootScope, $location, $window) {
+	.run(function (authentication, application, navigation, $rootScope, $window) {
 		$rootScope.$on('$locationChangeStart', function (scope, next, current) {
 			authentication.init();
 
 			// страницы входа
 			var loginPages = ['/Login', '/AdminLogin'];
+			// текущая страница
+			var currentPage = navigation.getCurrentPage();
 
-			var restrictedPage = $.inArray($location.path(), loginPages) === -1;
+			var restrictedPage = $.inArray(currentPage, loginPages) === -1;
 
 			if (!restrictedPage) {
 				// запомнить, чтобы правильно переходить
-				$window.sessionStorage.LoginPage = $location.path();
+				$window.sessionStorage.LoginPage = currentPage;
 			}
 
 			$rootScope.personInfo = authentication.getPerson();
@@ -71,7 +73,7 @@
 			var currentLoginPage = $window.sessionStorage.LoginPage || '/Login';
 
 			if (!authentication.isLoggedIn()) {
-				$location.path(currentLoginPage);
+				navigation.goToPage(currentLoginPage);
 			}
 		});
 	});

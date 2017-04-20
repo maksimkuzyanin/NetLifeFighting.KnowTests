@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test\AnswerDto.cs" />
-    <Compile Include="Person\LoginInfoDto.cs" />
+    <Compile Include="Person\PersonCredentials.cs" />
     <Compile Include="Person\PersonAnswerDto.cs" />
     <Compile Include="Person\PersonDto.cs" />
     <Compile Include="Test\AnswersGroupDto.cs" />

@@ -1,5 +1,9 @@
 ﻿using System.Web.Http;
-using NetLifeFighting.KnowTests.DAL.EntityFramework.Persons;
+using NetLifeFighting.KnowTests.Common;
+using NetLifeFighting.KnowTests.Common.Abstraction.Result;
+using NetLifeFighting.KnowTests.Common.Enums;
+using NetLifeFighting.KnowTests.Web.DTO.Person;
+using NetLifeFighting.KnowTests.Web.Helpers;
 
 namespace NetLifeFighting.KnowTests.Web.Controllers
 {
@@ -15,20 +19,31 @@ namespace NetLifeFighting.KnowTests.Web.Controllers
 	    const string AdminName = "admin";
 
 		/// <summary>
-		/// пользовательский репозиторий
+		/// компонента аутентификации
 		/// </summary>
-	    private PersonDao _personDao;
+		private readonly AuthComponent _authComponent;
 
 	    public AdminController()
 	    {
-		    _personDao = new PersonDao();
+		    _authComponent = new AuthComponent();
 	    }
 
 		[HttpPost]
-		[Route("auth")]
-	    public void AdminLogin(string password)
-	    {
-			//var admin = 
-	    }
+		[Route("login")]
+	    public Result<PersonDto> AdminLogin([FromBody] PersonCredentials credentials)
+		{
+			// инициализация полномочий
+			credentials.Nickname = AdminName;
+			credentials.Role = RoleType.Admin;
+
+			// данные администратора
+			var adminData = _authComponent.GetPersonData(credentials);
+
+			if (adminData == null)
+			{
+				return new Result<PersonDto>(ResultStatus.Failure, Messages.kEntryErr);
+			}
+			return new Result<PersonDto>(adminData);
+		}
     }
 }

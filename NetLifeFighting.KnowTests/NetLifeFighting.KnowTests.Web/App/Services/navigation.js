@@ -5,6 +5,10 @@ angular.module('app')
 			// переход на страницу
 			goToPage: function(url) {
 				$location.path(url);
+			},
+
+			getCurrentPage: function() {
+				return $location.path();
 			}
 		}
 	});

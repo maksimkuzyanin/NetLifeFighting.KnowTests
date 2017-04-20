@@ -1,9 +1,11 @@
-﻿namespace NetLifeFighting.KnowTests.Web.DTO.Person
+﻿using NetLifeFighting.KnowTests.Common.Enums;
+
+namespace NetLifeFighting.KnowTests.Web.DTO.Person
 {
 	/// <summary>
 	/// Информация по входу
 	/// </summary>
-	public class LoginInfoDto
+	public class PersonCredentials
 	{
 		/// <summary>
 		/// Имя пользователя
@@ -14,5 +16,10 @@
 		/// Пароль
 		/// </summary>
 		public string Password { get; set; }
+
+		/// <summary>
+		/// роль пользователя
+		/// </summary>
+		public RoleType Role { get; set; }
 	}
 }

@@ -1,4 +1,6 @@
-﻿namespace NetLifeFighting.KnowTests.Web.DTO.Person
+﻿using NetLifeFighting.KnowTests.Common.Enums;
+
+namespace NetLifeFighting.KnowTests.Web.DTO.Person
 {
 	/// <summary>
 	/// Пользователь
@@ -14,6 +16,11 @@
 		/// Имя пользователя
 		/// </summary>
 		public string Nickname { get; set; }
+
+		/// <summary>
+		/// роль пользователя
+		/// </summary>
+		public RoleType Role { get; set; }
 
 		/// <summary>
 		/// Ответы пользователя
