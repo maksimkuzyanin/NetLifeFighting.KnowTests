@@ -73,7 +73,7 @@
 				var adminName = "admin";
 				var adminRole = 1;
 
-				var url = "api/persons/admin/login";
+				var url = "api/admin/login";
 
 				credentials.nickname = adminName;
 				credentials.roleType = adminRole;

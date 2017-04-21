@@ -7,6 +7,7 @@ angular.module('app')
 				$location.path(url);
 			},
 
+			// текущая страница
 			getCurrentPage: function() {
 				return $location.path();
 			}
