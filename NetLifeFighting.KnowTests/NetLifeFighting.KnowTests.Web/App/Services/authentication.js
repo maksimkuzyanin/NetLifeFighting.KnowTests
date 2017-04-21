@@ -57,27 +57,14 @@
 
 			// сделал в этом сервисе более частные методы,
 			// при этом общую логику вынес для универсальности
+			// сделал два таких метода для безопасности
 			login: function (credentials) {
-
-				var studentRole = 1;
-
 				var url = "api/persons/student/login";
-
-				credentials.roleType = studentRole;
-
 				return this.commonDeferLogin(url, credentials);
 			},
 
 			adminLogin: function (credentials) {
-
-				var adminName = "admin";
-				var adminRole = 1;
-
 				var url = "api/admin/login";
-
-				credentials.nickname = adminName;
-				credentials.roleType = adminRole;
-
 				return this.commonDeferLogin(url, credentials);
 			},
 
