@@ -234,7 +234,11 @@ if not exists (
 		
 		CONSTRAINT [PK_Person] PRIMARY KEY (
 			PersonId ASC
-		)
+		),
+		
+		CONSTRAINT UQC_Person_Nickname
+			UNIQUE (Nickname)
+			WITH IGNORE_DUP_KEY
 	);
 end
 GO
