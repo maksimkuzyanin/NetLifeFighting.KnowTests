@@ -21,7 +21,7 @@ namespace NetLifeFighting.KnowTests.Web.Helpers
 		/// <returns></returns>
 		public PersonDto GetPersonData(PersonCredentials credentials)
 		{
-			var person = _personDao.GetByName(credentials.Nickname);
+			var person = _personDao.GetByNameAndRoleType(credentials.Nickname, credentials.Role);
 
 			if (person == null)
 			{

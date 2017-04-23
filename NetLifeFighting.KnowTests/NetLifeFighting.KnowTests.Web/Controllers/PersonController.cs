@@ -1,12 +1,10 @@
-﻿using System.Linq;
-using System.Web.Http;
-using AutoMapper;
+﻿using System.Web.Http;
 using NetLifeFighting.KnowTests.Common;
 using NetLifeFighting.KnowTests.Common.Abstraction.Result;
-using NetLifeFighting.KnowTests.Common.Helpers;
-using NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework;
+using NetLifeFighting.KnowTests.Common.Enums;
 using NetLifeFighting.KnowTests.DAL.EntityFramework.Persons;
 using NetLifeFighting.KnowTests.Web.DTO.Person;
+using NetLifeFighting.KnowTests.Web.Helpers;
 
 namespace NetLifeFighting.KnowTests.Web.Controllers
 {
@@ -18,32 +16,32 @@ namespace NetLifeFighting.KnowTests.Web.Controllers
 	{
 		private readonly PersonDao _personDao;
 
+		/// <summary>
+		/// компонента аутентификации
+		/// </summary>
+		private readonly AuthComponent _authComponent;
+
 		public PersonController()
 		{
 			_personDao = new PersonDao();
+			_authComponent = new AuthComponent();
 		}
 
 		[HttpPost]
 		[Route("student/login")]
-		public Result<PersonDto> GetPerson([FromBody]PersonCredentials loginInfoDto)
+		public Result<PersonDto> GetPerson([FromBody]PersonCredentials credentials)
 		{
-			var person = _personDao.GetByName(loginInfoDto.Nickname);
+			// инициализация полномочий
+			credentials.Role = RoleType.Student;
 
-			if (person == null)
+			// данные администратора
+			var personData = _authComponent.GetPersonData(credentials);
+
+			if (personData == null)
 			{
 				return new Result<PersonDto>(ResultStatus.Failure, Messages.kEntryErr);
 			}
-
-			var isValidPassword = PasswordHelper.CheckPasswordHash(loginInfoDto.Password, person.Password);
-
-			if (!isValidPassword)
-			{
-				return new Result<PersonDto>(ResultStatus.Failure, Messages.kEntryErr);
-			}
-
-			PersonDto dto = Mapper.Map<PersonDto>(person);
-
-			return new Result<PersonDto>(dto);
+			return new Result<PersonDto>(personData);
 		}
 	}
 }

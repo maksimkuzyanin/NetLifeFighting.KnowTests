@@ -9,6 +9,8 @@
 		kPageErrWrongCall: "Ошибка страницы: Неверный вызов",
 		kAttention: "Внимание",
 		kPleaseWait: "Пожалуйста, подождите",
-		kNext: "Следующий"
+		kNext: "Следующий",
+		kSelectFile: "Выбрать файл",
+		kCancel: "Отмена"
 	}
 };

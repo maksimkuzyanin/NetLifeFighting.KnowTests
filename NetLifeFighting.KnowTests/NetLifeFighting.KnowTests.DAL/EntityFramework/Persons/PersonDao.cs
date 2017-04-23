@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity.Migrations;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Linq;
 using EntityFramework.BulkInsert.Extensions;
 using NetLifeFighting.KnowTests.Common.Enums;
@@ -13,6 +11,11 @@ namespace NetLifeFighting.KnowTests.DAL.EntityFramework.Persons
 		public Person GetByName(string name)
 		{
 			return Query.FirstOrDefault(x => x.Nickname == name);
+		}
+
+		public Person GetByNameAndRoleType(string name, RoleType role)
+		{
+			return Query.FirstOrDefault(x => x.Nickname == name && x.RoleType == (int) role);
 		}
 
 		public Person[] GetAllByNameAndRoleType(string name, RoleType role)

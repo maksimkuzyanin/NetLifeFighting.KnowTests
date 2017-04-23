@@ -127,6 +127,46 @@
 
 		processing: function(message) {
 			return $.show.processing.current = $.show.longWork(message != null ? message : opts.processingText, "<span class=\"glyphicon glyphicon-time\"></span> " + opts.processingTitle);
+		},
+
+		fileDialog: function (options) {
+			var cancelBtn = function (dialog) {
+				return dialog.close();
+			};
+			var applyBtn = function (dialog) {
+			};
+
+			var content =
+				"<div>" +
+					"<label class='upload-area' style='width:100%;text-align:center;' for='fileupload'>" +
+						"<input id='fileupload' name='fileupload' type='file' style='display:none;' multiple='true'>" +
+						"<i class='fa fa-cloud-upload fa-3x'></i>" +
+						"<br />" +
+						"Göz at" +
+					"</label>" +
+					"<br />" +
+					"<span style='margin-left:5px !important;' id='fileList'></span>" +
+				 "</div>" +
+				 "<div class='clearfix'></div>";
+			content = content.replace('{0}', typeof options.contentHtml !== 'undefined' ? options.contentHtml : "");
+			content = content.replace('{1}', typeof options.additionalContent !== 'undefined' ? options.additionalContent : "");
+
+			bootbox.dialog({
+				message: content,
+				title: options.title,
+				buttons: {
+					confirm: {
+						label: language.Common.kOk,
+						className: 'btn-primary',
+						callback: applyBtn
+					},
+					cancel: {
+						label: language.Common.kCancel,
+						className: 'btn-default',
+						callback: cancelBtn
+					}
+				}
+			});
 		}
 	};
 
