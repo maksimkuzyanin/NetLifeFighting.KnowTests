@@ -136,18 +136,7 @@
 			var applyBtn = function (dialog) {
 			};
 
-			var content =
-				"<div>" +
-					"<label class='upload-area' style='width:100%;text-align:center;' for='fileupload'>" +
-						"<input id='fileupload' name='fileupload' type='file' style='display:none;' multiple='true'>" +
-						"<i class='fa fa-cloud-upload fa-3x'></i>" +
-						"<br />" +
-						"Göz at" +
-					"</label>" +
-					"<br />" +
-					"<span style='margin-left:5px !important;' id='fileList'></span>" +
-				 "</div>" +
-				 "<div class='clearfix'></div>";
+			var content = '{0} <form name="selectFile" method="post" enctype="multipart/form-data"> <div class="form-group"> <div class="input-group"> <span class="btn btn-primary btn-file input-group-addon">' + language.Generic.Common.kSelectFile + '<input type="file" name="file" id="fileupload"> </span> <input type="text" class="form-control" disabled id="fileName"> </div> </div> {1} <div class="alert alert-info" role="alert" style="display: none;" id="explanation"></div> </form>';
 			content = content.replace('{0}', typeof options.contentHtml !== 'undefined' ? options.contentHtml : "");
 			content = content.replace('{1}', typeof options.additionalContent !== 'undefined' ? options.additionalContent : "");
 
