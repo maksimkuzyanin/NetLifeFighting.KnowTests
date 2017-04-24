@@ -136,7 +136,9 @@
 			var applyBtn = function (dialog) {
 			};
 
-			var content = '{0} <form name="selectFile" method="post" enctype="multipart/form-data"> <div class="form-group"> <div class="input-group"> <span class="btn btn-primary btn-file input-group-addon">' + language.Generic.Common.kSelectFile + '<input type="file" name="file" id="fileupload"> </span> <input type="text" class="form-control" disabled id="fileName"> </div> </div> {1} <div class="alert alert-info" role="alert" style="display: none;" id="explanation"></div> </form>';
+			var content = 
+				"<label class=\"control-label\">" + language.Common.kSelectFile + "</label>" +
+				"<input id=\"input-1\" type=\"file\" class=\"file\">";
 			content = content.replace('{0}', typeof options.contentHtml !== 'undefined' ? options.contentHtml : "");
 			content = content.replace('{1}', typeof options.additionalContent !== 'undefined' ? options.additionalContent : "");
 
