@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Abstraction\Result\Result.cs" />
     <Compile Include="Abstraction\Result\ResultStatus.cs" />
+    <Compile Include="Components\TestComponent.cs" />
     <Compile Include="Enums\AnswerType.cs" />
     <Compile Include="Enums\LevelOfDifficulty.cs" />
     <Compile Include="Enums\RelevanceStatus.cs" />

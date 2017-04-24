@@ -28,3 +28,10 @@ D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.K
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\bin\Debug\EntityFramework.xml
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\obj\Debug\NetLifeFighting.KnowTests.Common.dll
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\obj\Debug\NetLifeFighting.KnowTests.Common.pdb
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\bin\Debug\NetLifeFighting.KnowTests.Common.dll.config
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\bin\Debug\NetLifeFighting.KnowTests.Common.dll
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\bin\Debug\NetLifeFighting.KnowTests.Common.pdb
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\bin\Debug\EntityFramework.dll
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\bin\Debug\EntityFramework.xml
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\obj\Debug\NetLifeFighting.KnowTests.Common.dll
+D:\Projects\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Common\obj\Debug\NetLifeFighting.KnowTests.Common.pdb

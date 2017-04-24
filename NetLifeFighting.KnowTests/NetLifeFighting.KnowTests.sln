@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetLifeFighting.KnowTests.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetLifeFighting.ImportExcel", "NetLifeFighting.ImportExcel\NetLifeFighting.ImportExcel.csproj", "{4308AEC0-45F8-4D90-9747-58714500DCF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetLifeFighting.KnowTests.Components", "NetLifeFighting.KnowTests.Components\NetLifeFighting.KnowTests.Components.csproj", "{4823EB8E-6467-4E58-B11F-80FED740EBF3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,10 +51,6 @@ Global
 		{4308AEC0-45F8-4D90-9747-58714500DCF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4308AEC0-45F8-4D90-9747-58714500DCF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4308AEC0-45F8-4D90-9747-58714500DCF5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4823EB8E-6467-4E58-B11F-80FED740EBF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4823EB8E-6467-4E58-B11F-80FED740EBF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4823EB8E-6467-4E58-B11F-80FED740EBF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4823EB8E-6467-4E58-B11F-80FED740EBF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
