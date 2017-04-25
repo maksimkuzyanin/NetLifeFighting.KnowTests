@@ -108,7 +108,12 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\NetLifeFighting.ImportExcel\NetLifeFighting.ImportExcel.csproj">
+      <Project>{4308AEC0-45F8-4D90-9747-58714500DCF5}</Project>
+      <Name>NetLifeFighting.ImportExcel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

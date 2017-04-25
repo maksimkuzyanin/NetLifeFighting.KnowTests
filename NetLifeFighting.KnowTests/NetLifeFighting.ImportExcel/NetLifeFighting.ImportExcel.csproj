@@ -44,7 +44,6 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExcelImporter.cs" />
     <Compile Include="ExcelParser.cs" />
     <Compile Include="ImportDescription.cs" />
     <Compile Include="ImportType.cs" />

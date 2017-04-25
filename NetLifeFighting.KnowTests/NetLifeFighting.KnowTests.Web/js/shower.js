@@ -130,34 +130,49 @@
 		},
 
 		fileDialog: function (options) {
-			var cancelBtn = function (dialog) {
-				return dialog.close();
-			};
-			var applyBtn = function (dialog) {
-			};
 
-			var content = 
+			if (typeof options === 'undefined') {
+				options = {};
+			}
+
+			var content =
 				"<label class=\"control-label\">" + language.Common.kSelectFile + "</label>" +
-				"<input id=\"input-1\" type=\"file\" class=\"file\">";
+				"<input id=\"fileupload\" type=\"file\" class=\"file\">";
+
+			// пока оставлю, возможно придется расширить
 			content = content.replace('{0}', typeof options.contentHtml !== 'undefined' ? options.contentHtml : "");
 			content = content.replace('{1}', typeof options.additionalContent !== 'undefined' ? options.additionalContent : "");
 
-			bootbox.dialog({
+			var dialog = bootbox.dialog({
 				message: content,
 				title: options.title,
+				show: false,
+				closeButton: false,
 				buttons: {
-					confirm: {
-						label: language.Common.kOk,
-						className: 'btn-primary',
-						callback: applyBtn
-					},
 					cancel: {
 						label: language.Common.kCancel,
-						className: 'btn-default',
-						callback: cancelBtn
+						className: "btn-default"
 					}
 				}
 			});
+
+			// настройки загрузчика файлов
+			var fileInputOpts = {
+				showPreview: false
+			};
+			if (typeof options.uploadUrl === "string") {
+				fileInputOpts.uploadUrl = options.uploadUrl;
+			}
+			if (options.allowedFileExtensions) {
+				fileInputOpts.allowedFileExtensions = options.allowedFileExtensions;
+			}
+			var filebatchuploadsuccess = typeof options.filebatchuploadsuccess === "function" ? options.filebatchuploadsuccess : function (event, data) { };
+
+			// инициализация загрузчика файлов
+			$("#fileupload").fileinput(fileInputOpts)
+				.on("filebatchuploadsuccess", filebatchuploadsuccess);
+
+			dialog.modal("show");
 		}
 	};
 

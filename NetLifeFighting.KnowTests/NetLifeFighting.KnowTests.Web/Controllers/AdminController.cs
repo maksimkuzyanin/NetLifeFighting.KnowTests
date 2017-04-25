@@ -1,6 +1,9 @@
-﻿using System.Web.Http;
+﻿using System.Linq;
+using System.Web;
+using System.Web.Http;
 using NetLifeFighting.KnowTests.Common;
 using NetLifeFighting.KnowTests.Common.Abstraction.Result;
+using NetLifeFighting.KnowTests.Common.Components;
 using NetLifeFighting.KnowTests.Common.Enums;
 using NetLifeFighting.KnowTests.Web.DTO.Person;
 using NetLifeFighting.KnowTests.Web.Helpers;
@@ -23,9 +26,15 @@ namespace NetLifeFighting.KnowTests.Web.Controllers
 		/// </summary>
 		private readonly AuthComponent _authComponent;
 
+		/// <summary>
+		/// компонента работы с тестами
+		/// </summary>
+		private TestComponent _testComponent;
+
 	    public AdminController()
 	    {
 		    _authComponent = new AuthComponent();
+			_testComponent = new TestComponent();
 	    }
 
 		[HttpPost]
@@ -45,5 +54,32 @@ namespace NetLifeFighting.KnowTests.Web.Controllers
 			}
 			return new Result<PersonDto>(adminData);
 		}
-    }
+
+		[HttpPost]
+		[Route("import")]
+		public void ImportTests()
+		{
+			var fileBytes = GetUploadFileBytes();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		private byte[] GetUploadFileBytes()
+		{
+			// загруженный файл
+			var file = HttpContext.Current.Request.Files[0];
+			// файловый поток
+			var stream = file.InputStream;
+			// длина содержимого файла
+			var contentLength = file.ContentLength;
+			// инициализация массива байтов
+			byte[] fileBytes = new byte[file.ContentLength];
+			// чтение байтов потока
+			stream.Read(fileBytes, 0, contentLength);
+
+			return fileBytes;
+		}
+	}
 }

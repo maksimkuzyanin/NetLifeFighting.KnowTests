@@ -35,6 +35,16 @@ namespace NetLifeFighting.ImportExcel
 			_importTemplate = importTemplate;
 		}
 
+		public ExcelParser(byte[] fileBytes, Dictionary<string, int> importTemplate)
+		{
+			using (Stream stream = new MemoryStream(fileBytes))
+			{
+				_workbook = new Workbook();
+				_workbook.LoadFromStream(stream);
+				_importTemplate = importTemplate;
+			}
+		}
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -130,6 +140,26 @@ namespace NetLifeFighting.ImportExcel
 			}
 
 			return questRows.ToArray();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		public QuestRow[] ParseAll()
+		{
+			// листы ексель
+			var sheets = _workbook.Worksheets;
+			
+			List<QuestRow> rows = new List<QuestRow>();
+			for (int i = 0; i < sheets.Count; i++)
+			{
+				// текущий лист
+				_currentSheet = sheets[i];
+				var testRows = Parse();
+				rows.AddRange(testRows);
+			}
+			return rows.ToArray();
 		}
 
 		/// <summary>
