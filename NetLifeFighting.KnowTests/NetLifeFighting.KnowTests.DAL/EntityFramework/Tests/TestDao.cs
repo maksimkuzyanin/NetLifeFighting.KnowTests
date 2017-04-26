@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using EntityFramework.BulkInsert.Extensions;
+using NetLifeFighting.KnowTests.Common.Helpers;
 using NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework;
 using NetLifeFighting.KnowTests.Web.DTO.Test;
 
@@ -40,6 +42,23 @@ namespace NetLifeFighting.KnowTests.DAL.EntityFramework.Tests
 		public TestQuestion[] GetTestQuestions()
 		{
 			return Context.TestsQuestions.ToArray(); // достать из базы все возможные вопросы для тестов
+		}
+
+		/// <summary>
+		/// Чистит связи с вопросами
+		/// </summary>
+		/// <param name="testIds"></param>
+		public void ClearTestQuestions(int[] testIds)
+		{
+			var testParams = testIds.CommaJoin();
+
+			Context.Database.ExecuteSqlCommand(
+				string.Format(@"delete from TestQuestion where TestId in ({0})", testParams));
+		}
+
+		public void SaveTestQuestions(IEnumerable<TestQuestion> testQuestions)
+		{
+			Context.BulkInsert(testQuestions);
 		}
 	}
 }

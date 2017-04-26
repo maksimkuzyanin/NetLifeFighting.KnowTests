@@ -63,11 +63,12 @@
   <ItemGroup>
     <Compile Include="Abstraction\Result\Result.cs" />
     <Compile Include="Abstraction\Result\ResultStatus.cs" />
-    <Compile Include="Components\TestComponent.cs" />
     <Compile Include="Enums\AnswerType.cs" />
+    <Compile Include="Enums\TestRegime.cs" />
     <Compile Include="Enums\LevelOfDifficulty.cs" />
     <Compile Include="Enums\RelevanceStatus.cs" />
     <Compile Include="Enums\RoleType.cs" />
+    <Compile Include="Helpers\ArrayExtension.cs" />
     <Compile Include="Helpers\StringExtension.cs" />
     <Compile Include="Helpers\PasswordHelper.cs" />
     <Compile Include="Messages.cs" />
@@ -113,6 +114,9 @@
       <Project>{4308AEC0-45F8-4D90-9747-58714500DCF5}</Project>
       <Name>NetLifeFighting.ImportExcel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

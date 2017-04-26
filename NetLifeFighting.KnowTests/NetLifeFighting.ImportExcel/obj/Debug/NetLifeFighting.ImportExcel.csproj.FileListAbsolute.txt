@@ -58,6 +58,5 @@ D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.I
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.ImportExcel\bin\Debug\Spire.License.dll
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.ImportExcel\bin\Debug\Spire.XLS.xml
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.ImportExcel\bin\Debug\Spire.Pdf.xml
-D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.ImportExcel\obj\Debug\NetLifeFighting.ImportExcel.csprojResolveAssemblyReference.cache
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.ImportExcel\obj\Debug\NetLifeFighting.ImportExcel.dll
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.ImportExcel\obj\Debug\NetLifeFighting.ImportExcel.pdb

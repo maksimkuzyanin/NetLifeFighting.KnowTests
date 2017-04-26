@@ -1,10 +1,9 @@
-﻿using System.Linq;
-using System.Web;
+﻿using System.Web;
 using System.Web.Http;
 using NetLifeFighting.KnowTests.Common;
 using NetLifeFighting.KnowTests.Common.Abstraction.Result;
-using NetLifeFighting.KnowTests.Common.Components;
 using NetLifeFighting.KnowTests.Common.Enums;
+using NetLifeFighting.KnowTests.Components;
 using NetLifeFighting.KnowTests.Web.DTO.Person;
 using NetLifeFighting.KnowTests.Web.Helpers;
 
@@ -29,7 +28,7 @@ namespace NetLifeFighting.KnowTests.Web.Controllers
 		/// <summary>
 		/// компонента работы с тестами
 		/// </summary>
-		private TestComponent _testComponent;
+		private readonly TestComponent _testComponent;
 
 	    public AdminController()
 	    {
@@ -60,6 +59,8 @@ namespace NetLifeFighting.KnowTests.Web.Controllers
 		public void ImportTests()
 		{
 			var fileBytes = GetUploadFileBytes();
+			// пока импорт неуниверсальный
+			_testComponent.ImportTests(fileBytes);
 		}
 
 		/// <summary>

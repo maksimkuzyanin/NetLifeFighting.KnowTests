@@ -297,3 +297,12 @@ D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.K
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web\obj\Debug\NetLifeFighting.KnowTests.Web.csprojResolveAssemblyReference.cache
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web\obj\Debug\NetLifeFighting.KnowTests.Web.dll
 D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web\obj\Debug\NetLifeFighting.KnowTests.Web.pdb
+D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web\bin\NetLifeFighting.ImportExcel.dll
+D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web\bin\NetLifeFighting.KnowTests.Components.dll
+D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web\bin\Spire.XLS.dll
+D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web\bin\Spire.Pdf.dll
+D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web\bin\Spire.License.dll
+D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web\bin\NetLifeFighting.ImportExcel.pdb
+D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web\bin\NetLifeFighting.KnowTests.Components.pdb
+D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web\bin\Spire.XLS.xml
+D:\Devs\Source\Repos\netlifefighting\NetLifeFighting.KnowTests\NetLifeFighting.KnowTests.Web\bin\Spire.Pdf.xml

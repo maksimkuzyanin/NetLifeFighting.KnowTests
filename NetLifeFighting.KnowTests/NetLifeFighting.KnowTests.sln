@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetLifeFighting.KnowTests.Web", "NetLifeFighting.KnowTests.Web\NetLifeFighting.KnowTests.Web.csproj", "{6C9C4C6D-E9A7-466D-8242-113004A672BE}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetLifeFighting.KnowTests.Web.DTO", "NetLifeFighting.KnowTests.Web.DTO\NetLifeFighting.KnowTests.Web.DTO.csproj", "{49DD5233-DD32-44CC-89D1-6A3C6E5D69F8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetLifeFighting.ImportExcel", "NetLifeFighting.ImportExcel\NetLifeFighting.ImportExcel.csproj", "{4308AEC0-45F8-4D90-9747-58714500DCF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetLifeFighting.KnowTests.Components", "NetLifeFighting.KnowTests.Components\NetLifeFighting.KnowTests.Components.csproj", "{68EF16B7-B690-46FA-BCE5-FFC0D779E6E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{4308AEC0-45F8-4D90-9747-58714500DCF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4308AEC0-45F8-4D90-9747-58714500DCF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4308AEC0-45F8-4D90-9747-58714500DCF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68EF16B7-B690-46FA-BCE5-FFC0D779E6E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68EF16B7-B690-46FA-BCE5-FFC0D779E6E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68EF16B7-B690-46FA-BCE5-FFC0D779E6E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68EF16B7-B690-46FA-BCE5-FFC0D779E6E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

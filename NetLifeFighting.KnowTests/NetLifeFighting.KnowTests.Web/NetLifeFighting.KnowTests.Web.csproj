@@ -1222,9 +1222,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NetLifeFighting.ImportExcel\NetLifeFighting.ImportExcel.csproj">
+      <Project>{4308AEC0-45F8-4D90-9747-58714500DCF5}</Project>
+      <Name>NetLifeFighting.ImportExcel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NetLifeFighting.KnowTests.Common\NetLifeFighting.KnowTests.Common.csproj">
       <Project>{79EB2C21-6E26-42C2-B378-1F9FAD27BC8E}</Project>
       <Name>NetLifeFighting.KnowTests.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetLifeFighting.KnowTests.Components\NetLifeFighting.KnowTests.Components.csproj">
+      <Project>{68EF16B7-B690-46FA-BCE5-FFC0D779E6E4}</Project>
+      <Name>NetLifeFighting.KnowTests.Components</Name>
     </ProjectReference>
     <ProjectReference Include="..\NetLifeFighting.KnowTests.DAL\NetLifeFighting.KnowTests.DAL.csproj">
       <Project>{DD30BB0B-716D-4ACE-BDF6-A493D21D53EC}</Project>
