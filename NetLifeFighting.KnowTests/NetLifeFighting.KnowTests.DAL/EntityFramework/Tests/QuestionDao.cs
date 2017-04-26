@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NetLifeFighting.KnowTests.Common.Enums;
+using NetLifeFighting.KnowTests.Common.Helpers;
 using NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework;
 
 namespace NetLifeFighting.KnowTests.DAL.EntityFramework.Tests
@@ -21,5 +22,21 @@ namespace NetLifeFighting.KnowTests.DAL.EntityFramework.Tests
 
 			return groupQuestionsDct;
 		}
+
+		/// <summary>
+		/// Чистит связи с вопросами
+		/// </summary>
+		public void ClearQuestAnswers(int[] questIds)
+		{
+			var questsParams = questIds.CommaJoin();
+
+			Context.Database.ExecuteSqlCommand(
+				string.Format(@"delete from QuestAnswer where QuestId in ({0})", questsParams));
+		}
+	}
+
+	public class AnswerDao : EntityFrameworkDao<Answer>
+	{
+		
 	}
 }

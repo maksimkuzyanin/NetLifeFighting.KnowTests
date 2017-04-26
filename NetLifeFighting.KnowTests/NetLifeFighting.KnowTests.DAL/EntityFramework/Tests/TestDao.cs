@@ -50,10 +50,10 @@ namespace NetLifeFighting.KnowTests.DAL.EntityFramework.Tests
 		/// <param name="testIds"></param>
 		public void ClearTestQuestions(int[] testIds)
 		{
-			var testParams = testIds.CommaJoin();
+			var testsParams = testIds.CommaJoin();
 
 			Context.Database.ExecuteSqlCommand(
-				string.Format(@"delete from TestQuestion where TestId in ({0})", testParams));
+				string.Format(@"delete from TestQuestion where TestId in ({0})", testsParams));
 		}
 
 		public void SaveTestQuestions(IEnumerable<TestQuestion> testQuestions)
