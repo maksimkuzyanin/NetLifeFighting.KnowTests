@@ -23,9 +23,9 @@ if not exists (
 		RelevanceStatus char(1) not null default('R'),
 		RelevanceDate datetime,
 		
-		CONSTRAINT [PK_Question] PRIMARY KEY {
+		CONSTRAINT [PK_Test] PRIMARY KEY (
 			TestId ASC
-		}
+		)
 	);
 end
 GO
@@ -73,9 +73,31 @@ if not exists (
 		LevelOfDifficulty char(1) not null default('S'),
 		AnswerType char(1) not null default('S'),
 		
-		CONSTRAINT [PK_Question] PRIMARY KEY {
+		CONSTRAINT [PK_Question] PRIMARY KEY (
 			QuestId ASC
-		}
+		)
+	);
+end
+GO
+
+/*
+	Файловые вложения
+*/
+if not exists (	
+			select 1 
+			from INFORMATION_SCHEMA.TABLES 
+			where TABLE_TYPE='BASE TABLE' and TABLE_NAME='FileAttachment'
+	) begin
+	
+	create table FileAttachment (
+		AttachmentId int identity(1,1),
+		Description varchar(4000) COLLATE Cyrillic_General_CI_AS,
+		AFileName varchar(256) null,
+		AFile varbinary(max) /*filestream*/ null,
+		
+		CONSTRAINT [PK_FileAttachment] PRIMARY KEY (
+			AttachmentId ASC
+		)
 	);
 end
 GO
@@ -93,10 +115,10 @@ if not exists (
 		Description varchar(4000) COLLATE Cyrillic_General_CI_AS,
 		OrderNo int,
 		
-		CONSTRAINT [PK_Quest_Attachment] PRIMARY KEY {
+		CONSTRAINT [PK_Quest_Attachment] PRIMARY KEY (
 			QuestId ASC,
 			AttachmentId ASC
-		},
+		),
 		
 		CONSTRAINT [FK1_Question]
 			FOREIGN KEY (QuestId)
@@ -152,9 +174,9 @@ if not exists (
 		Title varchar(200) COLLATE Cyrillic_General_CI_AS not null,
 		Literal varchar(10),
 		
-		CONSTRAINT [PK_Answer] PRIMARY KEY {
+		CONSTRAINT [PK_Answer] PRIMARY KEY (
 			AnswerId ASC
-		}
+		)
 	);
 end
 GO
@@ -179,7 +201,7 @@ if not exists (
 			QuestAnswerId ASC
 		),
 		
-		CONSTRAINT [FK1_Question]
+		CONSTRAINT [FK1_QuestAnswer_Question]
 			FOREIGN KEY (QuestId)
 			REFERENCES Question(QuestId),
 			
@@ -238,7 +260,7 @@ if not exists (
 		
 		CONSTRAINT UQC_Person_Nickname
 			UNIQUE (Nickname)
-			WITH IGNORE_DUP_KEY
+			WITH (IGNORE_DUP_KEY=OFF)
 	);
 end
 GO
@@ -283,30 +305,6 @@ if not exists (
 	);
 end
 GO
-
-/*
-	Файловые вложения
-*/
-if not exists (	
-			select 1 
-			from INFORMATION_SCHEMA.TABLES 
-			where TABLE_TYPE='BASE TABLE' and TABLE_NAME='FileAttachment'
-	) begin
-	
-	create table FileAttachment (
-		AttachmentId int identity(1,1),
-		Description varchar(4000) COLLATE Cyrillic_General_CI_AS,
-		AFileName varchar(256) null,
-		AFile varbinary(max) filestream null,
-		
-		CONSTRAINT [PK_FileAttachment] PRIMARY KEY (
-			AttachmentId ASC
-		)
-	);
-end
-GO
-
-
 
 -- тестовый пользователь
 -- password: 123456

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Runtime.InteropServices;
 using NetLifeFighting.ImportExcel;
+using NetLifeFighting.KnowTests.Common.Helpers;
 using NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework;
 using NetLifeFighting.KnowTests.DAL.EntityFramework.Tests;
 
@@ -60,8 +61,11 @@ namespace NetLifeFighting.KnowTests.Components
 				.Select(x => x.Questid)
 				.ToArray();
 
-			// чистит связи вопрос-ответ
-			_questionDao.ClearQuestAnswers(existsQuestsIds);
+			if (!existsQuestsIds.IsNullOrEmpty())
+			{
+				// чистит связи вопрос-ответ
+				_questionDao.ClearQuestAnswers(existsQuestsIds);
+			}
 
 			// вопросы в базе уникальны
 			Dictionary<string, Question> questsDct = quests.ToDictionary(x => x.Title);
@@ -82,8 +86,11 @@ namespace NetLifeFighting.KnowTests.Components
 				.Select(x => x.TestId)
 				.ToArray();
 
-			// чистит существующие связи с тест-вопрос
-			_testDao.ClearTestQuestions(existsTestsIds);
+			if (!existsTestsIds.IsNullOrEmpty())
+			{
+				// чистит существующие связи с тест-вопрос
+				_testDao.ClearTestQuestions(existsTestsIds);
+			}
 
 			// список тестов с вопросами
 			var testQuestions = new List<TestQuestion>();
