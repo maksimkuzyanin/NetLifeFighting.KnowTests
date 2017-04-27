@@ -91,6 +91,11 @@ namespace NetLifeFighting.ImportExcel
 		{
 			const int noHeadersRow = -1;
 
+			if (_currentSheet.IsEmpty)
+			{
+				return noHeadersRow;
+			}
+
 			var rows = _currentSheet.Rows;
 
 			var headersRow = rows.TakeWhile(row => !row.Cells[0].HasNumber).FirstOrDefault(CheckHeadersInRow);
@@ -112,7 +117,8 @@ namespace NetLifeFighting.ImportExcel
 
 			if (currentRow == -1)
 			{
-				throw new Exception("Документ не соответствует текущему шаблону");
+				return null; // пока пропускать
+				//throw new Exception("Документ не соответствует текущему шаблону");
 			}
 
 			// заголовок теста
@@ -157,6 +163,10 @@ namespace NetLifeFighting.ImportExcel
 				// текущий лист
 				_currentSheet = sheets[i];
 				var testRows = Parse();
+				if (testRows == null)
+				{
+					continue;
+				}
 				rows.AddRange(testRows);
 			}
 			return rows.ToArray();

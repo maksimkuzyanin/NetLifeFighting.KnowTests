@@ -51,44 +51,6 @@ namespace NetLifeFighting.KnowTests.Components
 			// логика сохранения в базу
 			// работает в режиме обновления
 
-			// тесты
-			/*var tests =_testDao.GetAll();
-			// вопросы
-			var quests = _questionDao.GetAll();
-			// ответы
-			var answers = _answerDao.GetAll();
-
-			// есть сгруппированные вопросы по заголовку теста
-			var excelTests = rows.GroupBy(row => row.TestTitle);
-
-			// поиск тестов уже существующих в базе, связь вопросов с ними нужно будет обновлять
-			var existsTests = tests.Where(x => excelTests.Any(gr => gr.Key.Equals(x.Title))).ToArray();
-			// существующие вопросы
-			var existsQuests = quests.Where(x => rows.Any(y => y.QuestTitle.Equals(x.Title))).ToArray();
-			
-			// идентификаторы существующих тестов
-			var testIds = existsTests.Select(x => x.TestId).ToArray();
-			// идентификаторы существующих вопросов
-			var questIds = existsQuests.Select(x => x.Questid).ToArray();
-
-			// чистит существующие связи с вопросами
-			_testDao.ClearTestQuestions(testIds);
-			// чистит связи вопрос-ответ
-			_questionDao.ClearQuestAnswers(questIds);
-
-			// формирование сущностей для вставки в базу
-			List<TestQuestion> testQuestions = new List<TestQuestion>();
-			foreach (var excelTest in excelTests)
-			{
-				// если тест существует - взять из базы
-				var newTest = existsTests.FirstOrDefault(x => x.Title.Equals(excelTest.Key)) ?? new Test { Title = excelTest.Key };
-				// цикл по вопросам
-				foreach (var questRow in excelTest)
-				{
-					
-				}
-			}*/
-
 			// вопросы
 			var quests = _questionDao.GetAll().ToArray();
 
@@ -107,31 +69,61 @@ namespace NetLifeFighting.KnowTests.Components
 			// и лишь имеет связь с конкретным вопросом
 			Dictionary<string, Answer> answers = _answerDao.GetAll().ToDictionary(x => x.Title);
 
-			// список новых вопросов
-			var newQuests = new List<Question>();
-			foreach (var questRow in questRows)
+			// тесты
+			var tests =_testDao.GetAll().ToArray();
+			// тесты в базе уникальны
+			var testsDct = tests.ToDictionary(x => x.Title);
+			// есть сгруппированные вопросы по заголовку теста
+			var excelTests = questRows.GroupBy(row => row.TestTitle);
+
+			// идентификаторы существующих тестов
+			var existsTestsIds = tests
+				.Where(x => questRows.Any(y => y.TestTitle.Equals(x.Title)))
+				.Select(x => x.TestId)
+				.ToArray();
+
+			// чистит существующие связи с тест-вопрос
+			_testDao.ClearTestQuestions(existsTestsIds);
+
+			// список тестов с вопросами
+			var testQuestions = new List<TestQuestion>();
+			// разбор ексель-файла
+			foreach (var excelTest in excelTests)
 			{
-				Question newQuest;
-				if (!questsDct.TryGetValue(questRow.QuestTitle, out newQuest))
+				Test newTest;
+				if (!testsDct.TryGetValue(excelTest.Key, out newTest))
 				{
-					newQuest = new Question { Title = questRow.QuestTitle };
+					newTest = new Test { Title = excelTest.Key };
 				}
 
-				var questAnswers = new HashSet<QuestAnswer>();
-				foreach (var answer in questRow.Answers)
+				foreach (var questRow in excelTest)
 				{
-					Answer newAnswer;
-					if (!answers.TryGetValue(answer, out newAnswer))
+					Question newQuest;
+					if (!questsDct.TryGetValue(questRow.QuestTitle, out newQuest))
 					{
-						newAnswer = new Answer { Title = answer };
+						newQuest = new Question { Title = questRow.QuestTitle };
 					}
-					var questAnswer = new QuestAnswer { Question = newQuest, Answer = newAnswer };
-					questAnswers.Add(questAnswer);
-				}
 
-				newQuest.QuestsAnswers = questAnswers;
-				newQuests.Add(newQuest);
+					var questAnswers = new HashSet<QuestAnswer>();
+					foreach (var answer in questRow.Answers)
+					{
+						Answer newAnswer;
+						if (!answers.TryGetValue(answer, out newAnswer))
+						{
+							newAnswer = new Answer { Title = answer };
+						}
+						var questAnswer = new QuestAnswer { Question = newQuest, Answer = newAnswer };
+						questAnswers.Add(questAnswer);
+					}
+
+					newQuest.QuestsAnswers = questAnswers;
+					// сформировать связь тест-вопрос
+					var testQuestion = new TestQuestion { Test = newTest, Question = newQuest, QuestNum = questRow.QuestNum };
+					testQuestions.Add(testQuestion);
+				}
 			}
+			// сохранить полученные данные в базу
+			_testDao.SaveTestQuestions(testQuestions);
 		}
 
 		/// <summary>
