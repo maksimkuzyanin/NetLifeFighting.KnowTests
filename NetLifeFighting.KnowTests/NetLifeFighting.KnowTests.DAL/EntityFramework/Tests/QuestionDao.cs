@@ -28,6 +28,11 @@ namespace NetLifeFighting.KnowTests.DAL.EntityFramework.Tests
 		/// </summary>
 		public void ClearQuestAnswers(int[] questIds)
 		{
+			if (questIds.IsNullOrEmpty())
+			{
+				return;
+			}
+
 			var questsParams = questIds.CommaJoin();
 
 			Context.Database.ExecuteSqlCommand(

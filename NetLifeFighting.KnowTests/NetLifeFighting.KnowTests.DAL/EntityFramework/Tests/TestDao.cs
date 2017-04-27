@@ -50,6 +50,11 @@ namespace NetLifeFighting.KnowTests.DAL.EntityFramework.Tests
 		/// <param name="testIds"></param>
 		public void ClearTestQuestions(int[] testIds)
 		{
+			if (testIds.IsNullOrEmpty())
+			{
+				return;
+			}
+
 			var testsParams = testIds.CommaJoin();
 
 			Context.Database.ExecuteSqlCommand(
