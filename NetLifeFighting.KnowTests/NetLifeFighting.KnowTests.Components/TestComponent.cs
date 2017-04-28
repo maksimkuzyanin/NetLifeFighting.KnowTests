@@ -60,31 +60,10 @@ namespace NetLifeFighting.KnowTests.Components
 			// логика сохранения в базу
 			// работает в режиме обновления
 
-			// равно как и вопросы каждый ответ уникален в рамках существущей модели
-			// и лишь имеет связь с конкретным вопросом
-			Dictionary<string, Answer> currentAnswers = _answerDao.GetAll().ToDictionary(x => x.Title);
-
-			// заголовки ответов
-			var answerTitles = questRows
-				.SelectMany(x => x.Answers)
-				.Select(GetTitle)
-				.Distinct();
-
-			var setAnswers = new List<Answer>();
-			foreach (var answerTitle in answerTitles)
-			{
-				Answer setAnswer;
-				if (currentAnswers.TryGetValue(answerTitle, out setAnswer))
-				{
-					continue;
-				}
-				setAnswer = new Answer { Title = answerTitle };
-				setAnswers.Add(setAnswer);
-			}
-			// сохранить новые ответы
-			_answerDao.Save(setAnswers);
+			// установить ответы
+			SetAnswers(questRows);
 			// текущие ответы
-			currentAnswers = _answerDao.GetAll().ToDictionary(x => x.Title);
+			Dictionary<string, Answer> currentAnswers = _answerDao.GetAll().ToDictionary(x => x.Title);
 
 			// текущие вопросы
 			var currentQuests = _questionDao.GetAll().ToDictionary(x => x.Title);
@@ -141,7 +120,9 @@ namespace NetLifeFighting.KnowTests.Components
 			currentTests = _testDao.GetAll().ToDictionary(x => x.Title);
 
 			// сохранение привязок
-			// список тестов с вопросами
+			// вопрос-ответ
+			var questAnswers = new List<QuestAnswer>();
+			// тест-вопрос
 			var testQuestions = new List<TestQuestion>();
 			// разбор ексель-файла
 			foreach (var excelTest in excelTests)
@@ -162,7 +143,7 @@ namespace NetLifeFighting.KnowTests.Components
 						throw new ApplicationException(string.Format(errMessageQuest, questRow.QuestTitle));
 					}
 
-					var questAnswers = new HashSet<QuestAnswer>();
+					//var questAnswers = new HashSet<QuestAnswer>();
 					foreach (var answerDescription in questRow.Answers)
 					{
 						string answerLiteral = GetLiteral(answerDescription);
@@ -177,7 +158,7 @@ namespace NetLifeFighting.KnowTests.Components
 						questAnswers.Add(questAnswer);
 					}
 
-					quest.QuestsAnswers = questAnswers;
+					//quest.QuestsAnswers = questAnswers;
 					// сформировать связь тест-вопрос
 					var testQuestion = new TestQuestion
 					{
@@ -193,6 +174,33 @@ namespace NetLifeFighting.KnowTests.Components
 			// сохранить полученные данные в базу
 			_testDao.SaveTestQuestions(testQuestions);
 			
+		}
+
+		private void SetAnswers(QuestRow[] questRows)
+		{
+			// равно как и вопросы каждый ответ уникален в рамках существущей модели
+			// и лишь имеет связь с конкретным вопросом
+			Dictionary<string, Answer> currentAnswers = _answerDao.GetAll().ToDictionary(x => x.Title);
+
+			// заголовки ответов
+			var answerTitles = questRows
+				.SelectMany(x => x.Answers)
+				.Select(GetTitle)
+				.Distinct();
+
+			var setAnswers = new List<Answer>();
+			foreach (var answerTitle in answerTitles)
+			{
+				Answer setAnswer;
+				if (currentAnswers.TryGetValue(answerTitle, out setAnswer))
+				{
+					continue;
+				}
+				setAnswer = new Answer {Title = answerTitle};
+				setAnswers.Add(setAnswer);
+			}
+			// сохранить новые ответы
+			_answerDao.Save(setAnswers);
 		}
 
 		private string GetLiteral(string description)
