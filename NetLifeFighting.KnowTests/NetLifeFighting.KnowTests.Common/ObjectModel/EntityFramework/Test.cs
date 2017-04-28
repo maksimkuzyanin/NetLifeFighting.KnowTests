@@ -37,35 +37,13 @@ namespace NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework
 		/// <summary>
 		/// Уровень сложности
 		/// </summary>
-		[Column("LevelOfDifficulty")]
-		public virtual string LevelOfDifficultyStr
-		{
-			get { return ((char) LevelOfDifficulty).ToString(); }
-			set { LevelOfDifficulty = value.ToEnum<LevelOfDifficulty>(); }
-		}
-
-		/// <summary>
-		/// Уровень сложности
-		/// </summary>
-		[NotMapped]
-		public virtual LevelOfDifficulty LevelOfDifficulty { get; set; }
+		public virtual string LevelOfDifficulty { get; set; }
 
 		/// <summary>
 		/// Статус актуальности
 		/// </summary>
-		[Column("RelevanceStatus")]
-		public virtual string RelevanceStatusStr
-		{
-			get { return ((char) RelevanceStatus).ToString(); }
-			set { RelevanceStatus = value.ToEnum<RelevanceStatus>(); }
-		}
+		public virtual string RelevanceStatus { get; set; }
 
-		/// <summary>
-		/// Статус актуальности
-		/// </summary>
-		[NotMapped]
-		public virtual RelevanceStatus RelevanceStatus { get; set; }
-		
 		/// <summary>
 		/// Дата актуальности
 		/// </summary>

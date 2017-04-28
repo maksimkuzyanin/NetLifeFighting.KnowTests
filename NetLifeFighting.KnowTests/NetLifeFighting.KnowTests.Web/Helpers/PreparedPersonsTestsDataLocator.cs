@@ -125,7 +125,7 @@ namespace NetLifeFighting.KnowTests.Web.Helpers
 					{
 						var preparedQuest = new PreparedQuestionDto
 						{
-							Quest = new QuestionDto(groupQuest.Questid, groupQuest.Title, groupQuest.Literal, groupQuest.LevelOfDifficultyStr, groupQuest.AnswerTypeStr),
+							Quest = new QuestionDto(groupQuest.Questid, groupQuest.Title, groupQuest.Literal, groupQuest.LevelOfDifficulty, groupQuest.AnswerType),
 							ChildQuestions = gr.Select(y => y.Quest).ToArray(),
 							AnswersGroups = gr.SelectMany(y => y.AnswersGroups).ToArray()
 						};

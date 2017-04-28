@@ -171,7 +171,7 @@ if not exists (
 	
 	create table Answer (
 		AnswerId int identity(1,1),
-		Title varchar(200) COLLATE Cyrillic_General_CI_AS not null,
+		Title varchar(1000) COLLATE Cyrillic_General_CI_AS not null,
 		Literal varchar(10),
 		
 		CONSTRAINT [PK_Answer] PRIMARY KEY (

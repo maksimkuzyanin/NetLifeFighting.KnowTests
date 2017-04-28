@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using EntityFramework.BulkInsert.Extensions;
 using NetLifeFighting.KnowTests.Common.Enums;
 using NetLifeFighting.KnowTests.Common.Helpers;
 using NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework;
@@ -17,7 +18,7 @@ namespace NetLifeFighting.KnowTests.DAL.EntityFramework.Tests
 			string conformity = ((char) AnswerType.Conformity).ToString();
 
 			var groupQuestionsDct = Query
-				.Where(x => x.AnswerTypeStr == conformity)
+				.Where(x => x.AnswerType == conformity)
 				.ToDictionary(x => x.Questid);
 
 			return groupQuestionsDct;

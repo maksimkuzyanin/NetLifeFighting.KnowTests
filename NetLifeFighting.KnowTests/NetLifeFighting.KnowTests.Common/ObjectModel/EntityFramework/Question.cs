@@ -43,35 +43,12 @@ namespace NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework
 		/// <summary>
 		/// Уровень сложности
 		/// </summary>
-		[Column("LevelOfDifficulty")]
-		public virtual string LevelOfDifficultyStr
-		{
-			get { return ((char) LevelOfDifficulty).ToString(); }
-			set { LevelOfDifficulty = value.ToEnum<LevelOfDifficulty>(); }
-		}
-
-		/// <summary>
-		/// Уровень сложности
-		/// </summary>
-		[NotMapped]
-		public virtual LevelOfDifficulty LevelOfDifficulty { get; set; }
+		public virtual string LevelOfDifficulty { get; set; }
 
 		/// <summary>
 		/// Тип
 		/// </summary>
-		[Column("AnswerType")]
-		public virtual string AnswerTypeStr
-		{
-			// todo: сделать без приведения
-			get { return ((char) AnswerType).ToString(); }
-			set { AnswerType = value.ToEnum<AnswerType>(); }
-		}
-
-		/// <summary>
-		/// Тип
-		/// </summary>
-		[NotMapped]
-		public virtual AnswerType AnswerType { get; set; }
+		public virtual string AnswerType { get; set; }
 
 		/// <summary>
 		/// Тесты

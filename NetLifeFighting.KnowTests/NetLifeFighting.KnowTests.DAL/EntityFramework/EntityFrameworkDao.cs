@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using EntityFramework.BulkInsert.Extensions;
 using NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework;
 using NetLifeFighting.KnowTests.DAL.Common;
 
@@ -123,13 +124,15 @@ namespace NetLifeFighting.KnowTests.DAL.EntityFramework
 			Context.SaveChanges();
 		}
 
-		public void Save(IEnumerable<T> items)
+		public virtual void Save(IEnumerable<T> items)
 		{
-			foreach (var item in items)
+			/*foreach (var item in items)
 			{
 				MarkToSaveOrUpdate(item);
 			}
-			Context.SaveChanges();
+			Context.SaveChanges();*/
+
+			Context.BulkInsert(items);
 		}
 
 		private void MarkToSaveOrUpdate(T item)
@@ -139,6 +142,7 @@ namespace NetLifeFighting.KnowTests.DAL.EntityFramework
 			{
 				Entities.Add(item);
 			}
+
 			entry.State = EntityState.Modified;
 		}
 
