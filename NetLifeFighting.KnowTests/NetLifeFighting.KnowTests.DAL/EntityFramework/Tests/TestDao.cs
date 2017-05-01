@@ -56,9 +56,28 @@ namespace NetLifeFighting.KnowTests.DAL.EntityFramework.Tests
 				string.Format(@"delete from TestQuestion where TestId in ({0})", testsParams));
 		}
 
+		public void ClearQuestAnswers(int[] questIds)
+		{
+			var questsParams = questIds.CommaJoin();
+
+			Context.Database.ExecuteSqlCommand(
+				string.Format(@"delete from QuestAnswer where QuestId in ({0})", questsParams));
+		}
+
+		public void SaveQuestAnswers(IEnumerable<QuestAnswer> questAnswers)
+		{
+			Context.BulkInsert(questAnswers);
+		}
+
 		public void SaveTestQuestions(IEnumerable<TestQuestion> testQuestions)
 		{
 			Context.BulkInsert(testQuestions);
+		}
+
+		public Test[] GetByTitles(IEnumerable<string> titles)
+		{
+			var tests = Query.Where(x => titles.Contains(x.Title)).ToArray();
+			return tests;
 		}
 	}
 }

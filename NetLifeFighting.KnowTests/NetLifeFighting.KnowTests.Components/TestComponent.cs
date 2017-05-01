@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text.RegularExpressions;
 using NetLifeFighting.ImportExcel;
-using NetLifeFighting.KnowTests.Common.Enums;
 using NetLifeFighting.KnowTests.Common.Helpers;
 using NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework;
 using NetLifeFighting.KnowTests.DAL.EntityFramework.Tests;
@@ -45,10 +43,6 @@ namespace NetLifeFighting.KnowTests.Components
 		/// <param name="type"></param>
 		public void ImportTests(byte[] fileBytes, [Optional][DefaultParameterValue(ImportType.Simple)] ImportType type)
 		{
-			// сообщения об ошибках
-			const string errMessageTest = "Ошибка сохранения теста \"{0}\"";
-			const string errMessageQuest = "Ошибка сохранения вопроса \"{0}\"";
-			const string errMessageAnswer = "Ошибка сохранения ответа \"{0}\"";
 
 			// шаблон импорта
 			Dictionary<string, int> templ = GetImportTemplate(type);
@@ -57,12 +51,7 @@ namespace NetLifeFighting.KnowTests.Components
 			// строки с информацией по вопросам
 			QuestRow[] questRows = parser.ParseAll();
 			
-			// логика сохранения в базу
-			// работает в режиме обновления
-
-			// равно как и вопросы каждый ответ уникален в рамках существущей модели
-			// и лишь имеет связь с конкретным вопросом
-			Dictionary<string, Answer> currentAnswers = _answerDao.GetAll().ToDictionary(x => x.Title);
+			// логика сохранения в базу работает в режиме обновления
 
 			// заголовки ответов
 			var answerTitles = questRows
@@ -70,79 +59,63 @@ namespace NetLifeFighting.KnowTests.Components
 				.Select(GetTitle)
 				.Distinct();
 
-			var setAnswers = new List<Answer>();
-			foreach (var answerTitle in answerTitles)
-			{
-				Answer setAnswer;
-				if (currentAnswers.TryGetValue(answerTitle, out setAnswer))
-				{
-					continue;
-				}
-				setAnswer = new Answer { Title = answerTitle };
-				setAnswers.Add(setAnswer);
-			}
-			// сохранить новые ответы
-			_answerDao.Save(setAnswers);
-			// текущие ответы
-			currentAnswers = _answerDao.GetAll().ToDictionary(x => x.Title);
-
-			// текущие вопросы
-			var currentQuests = _questionDao.GetAll().ToDictionary(x => x.Title);
+			// устанавливает ответы
+			SetAnswers(answerTitles);
 
 			// заголовки вопросов
 			var questTitles = questRows
 				.Select(x => GetTitle(x.QuestTitle))
 				.Distinct();
 
-			var setQuests = new List<Question>();
-			foreach (var questTitle in questTitles)
-			{
-				Question setQuest;
-				if (currentQuests.TryGetValue(questTitle, out setQuest))
-				{
-					// у существующих вопросов почистить привязки с ответами
-					setQuest.QuestsAnswers.Clear();
-				}
-				else
-				{
-					setQuest = new Question { Title = questTitle, AnswerType = "S", LevelOfDifficulty = "S"};
-				}
-				setQuests.Add(setQuest);
-			}
-			// сохранение вопросов без привязок к ответам
-			_questionDao.Save(setQuests);
-			// текущие вопросы
-			currentQuests = _questionDao.GetAll().ToDictionary(x => x.Title);
+			// устанавливает вопросы
+			SetQuests(questTitles);
 
-			// текущие тесты
-			var currentTests = _testDao.GetAll().ToDictionary(x => x.Title);
 			// сгруппированные вопросы по заголовку теста
 			var excelTests = questRows.GroupBy(row => row.TestTitle).ToArray();
+			// заголовки тестов
+			var testTitles = excelTests.Select(x => x.Key).Distinct();
 
-			var setTests = new List<Test>();
-			foreach (var excelTest in excelTests)
-			{
-				string testTitle = excelTest.Key;
-				Test setTest;
+			SetTests(testTitles);
 
-				if (currentTests.TryGetValue(testTitle, out setTest))
-				{
-					setTest.TestQuestions.Clear();
-				}
-				else
-				{
-					setTest = new Test { Title = testTitle, LevelOfDifficulty = "S", RelevanceStatus = "R" };
-				}
-				setTests.Add(setTest);
-			}
-			// сохранение тестов
-			_testDao.Save(setTests);
 			// текущие тесты
-			currentTests = _testDao.GetAll().ToDictionary(x => x.Title);
+			var currentTests = _testDao
+				.GetByTitles(testTitles)
+				.ToDictionary(x => x.Title);
+
+			// текущие ответы
+			var currentAnswers = _answerDao
+				.GetByTitles(answerTitles)
+				.ToDictionary(x => x.Title);
+
+			// текущие вопросы
+			var currentQuests = _questionDao
+				.GetByTitles(questTitles)
+				.ToDictionary(x => x.Title);
+
+			// установка привязок
+			SetBindings(currentTests, currentAnswers, currentQuests, excelTests);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="currentTests"></param>
+		/// <param name="currentAnswers"></param>
+		/// <param name="currentQuests"></param>
+		/// <param name="excelTests"></param>
+		private void SetBindings(Dictionary<string, Test> currentTests, Dictionary<string, Answer> currentAnswers, Dictionary<string, Question> currentQuests, IGrouping<string, QuestRow>[] excelTests)
+		{
+			// сообщения об ошибках
+			const string errMessageTest = "Ошибка сохранения теста \"{0}\"";
+			const string errMessageQuest = "Ошибка сохранения вопроса \"{0}\"";
+			const string errMessageAnswer = "Ошибка сохранения ответа \"{0}\"";
 
 			// сохранение привязок
-			// список тестов с вопросами
+			// список вопрос-ответ
+			var questAnswers = new List<QuestAnswer>();
+			// список тест-вопрос
 			var testQuestions = new List<TestQuestion>();
+
 			// разбор ексель-файла
 			foreach (var excelTest in excelTests)
 			{
@@ -162,7 +135,6 @@ namespace NetLifeFighting.KnowTests.Components
 						throw new ApplicationException(string.Format(errMessageQuest, questRow.QuestTitle));
 					}
 
-					var questAnswers = new HashSet<QuestAnswer>();
 					foreach (var answerDescription in questRow.Answers)
 					{
 						string answerLiteral = GetLiteral(answerDescription);
@@ -173,26 +145,126 @@ namespace NetLifeFighting.KnowTests.Components
 						{
 							throw new ApplicationException(string.Format(errMessageAnswer, answerTitle));
 						}
-						var questAnswer = new QuestAnswer { QuestId = quest.Questid, AnswerId = answer.AnswerId, Question = quest, Answer = answer };
+						var questAnswer = new QuestAnswer
+						{
+							QuestId = quest.Questid,
+							AnswerId = answer.AnswerId
+						};
 						questAnswers.Add(questAnswer);
 					}
 
-					quest.QuestsAnswers = questAnswers;
 					// сформировать связь тест-вопрос
 					var testQuestion = new TestQuestion
 					{
 						TestId = test.TestId,
 						QuestId = quest.Questid,
-						Test = test,
-						Question = quest,
 						QuestNum = questRow.QuestNum
 					};
 					testQuestions.Add(testQuestion);
 				}
 			}
 			// сохранить полученные данные в базу
+			_testDao.SaveQuestAnswers(questAnswers);
 			_testDao.SaveTestQuestions(testQuestions);
-			
+		}
+
+		private void SetTests(IEnumerable<string> testTitles)
+		{
+			// текущие тесты
+			var currentTests = _testDao
+				.GetByTitles(testTitles)
+				.ToDictionary(x => x.Title);
+
+			// чистит связи тест-вопрос
+			var testIds = currentTests.Select(x => x.Value.TestId).ToArray();
+			if (!testIds.IsNullOrEmpty())
+			{
+				_testDao.ClearTestQuestions(testIds);
+			}
+
+			var setTests = new List<Test>();
+			foreach (var testTitle in testTitles)
+			{
+				Test setTest;
+
+				if (currentTests.TryGetValue(testTitle, out setTest))
+				{
+					continue;
+				}
+				setTest = new Test
+				{
+					Title = testTitle,
+					LevelOfDifficulty = "S",
+					RelevanceStatus = "R"
+				};
+				setTests.Add(setTest);
+			}
+			// сохранение тестов
+			_testDao.Save(setTests);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="questTitles"></param>
+		private void SetQuests(IEnumerable<string> questTitles)
+		{
+			// текущие вопросы
+			var currentQuests = _questionDao
+				.GetByTitles(questTitles)
+				.ToDictionary(x => x.Title);
+
+			// почистить существующие связи вопрос-ответ
+			var questIds = currentQuests.Select(x => x.Value.Questid).ToArray();
+			if (!questIds.IsNullOrEmpty())
+			{
+				_testDao.ClearQuestAnswers(questIds);
+			}
+
+			var setQuests = new List<Question>();
+			foreach (var questTitle in questTitles)
+			{
+				Question setQuest;
+				if (currentQuests.TryGetValue(questTitle, out setQuest))
+				{
+					continue;
+				}
+				setQuest = new Question
+				{
+					Title = questTitle,
+					AnswerType = "S",
+					LevelOfDifficulty = "S"
+				};
+				setQuests.Add(setQuest);
+			}
+			// сохранение вопросов без привязок к ответам
+			_questionDao.Save(setQuests);
+		}
+
+		/// <summary>
+		/// устанавливает ответы
+		/// </summary>
+		/// <param name="answerTitles"></param>
+		private void SetAnswers(IEnumerable<string> answerTitles)
+		{
+			// текущие ответы
+			Dictionary<string, Answer> currentAnswers = _answerDao
+				.GetByTitles(answerTitles)
+				.ToDictionary(x => x.Title);
+
+			var setAnswers = new List<Answer>();
+			foreach (var answerTitle in answerTitles)
+			{
+				Answer setAnswer;
+				if (currentAnswers.TryGetValue(answerTitle, out setAnswer))
+				{
+					continue;
+				}
+				setAnswer = new Answer { Title = answerTitle };
+				setAnswers.Add(setAnswer);
+			}
+			// сохранить новые ответы
+			_answerDao.Save(setAnswers);
 		}
 
 		private string GetLiteral(string description)
