@@ -1,5 +1,64 @@
 ﻿<div ng-controller="adminCtrl">
 
+	<div class="row">
+		<div class="col-md-6">
+			<div class="dashboard-box dashboard-box-chart bg-white content-box">
+				<div class="content-wrapper">
+					<div class="header">
+						<span>Справка</span>
+					</div>
+					<div class="bs-label bg-green">!</div>
+					<div class="center-div sparkline-big-alt">
+						<div class="text-left" style="display: inline-block; width: auto; height: 110px; vertical-align: top;">
+							Импорт тестов возможен в формате .xls и .xlsx.
+							Ниже представлены ссылки на шаблоны ексель-файлов в формате краткого и расширенного импорта.
+						</div>
+					</div>
+				</div>
+				<div class="button-pane">
+					<div class="size-md float-left">
+						Импорт тестов
+					</div>
+					<a href="javascript:void(0)" ng-click="importTests();" class="btn btn-info float-right tooltip-button" data-placement="top">
+						<i class="glyphicon glyphicon-import"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="dashboard-box dashboard-box-chart bg-white content-box">
+				<div class="content-wrapper">
+					<div class="header">
+						169
+						<span>Total Subscriptions<b> in last</b> 6 days</span>
+					</div>
+					<div class="bs-label bg-red">-14%</div>
+					<div class="center-div sparkline-big-alt"><canvas width="268" height="110" style="display: inline-block; width: 268px; height: 110px; vertical-align: top;"></canvas></div>
+					<div class="row list-grade">
+						<div class="col-md-2">M</div>
+						<div class="col-md-2">T</div>
+						<div class="col-md-2">W</div>
+						<div class="col-md-2">T</div>
+						<div class="col-md-2">F</div>
+						<div class="col-md-2">S</div>
+					</div>
+				</div>
+				<div class="button-pane">
+					<div class="size-md float-left">
+						<a href="#" title="">
+							View all members
+						</a>
+					</div>
+					<a href="#" class="btn btn-default float-right tooltip-button" data-placement="top" title="" data-original-title="View details">
+						<i class="glyph-icon icon-angle-right"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 	<div class="panel-group" id="accordion">
 		<div class="panel panel-primary">
 			<div class="panel-heading">

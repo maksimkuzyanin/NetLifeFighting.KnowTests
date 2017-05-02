@@ -124,15 +124,15 @@ namespace NetLifeFighting.KnowTests.DAL.EntityFramework
 			Context.SaveChanges();
 		}
 
-		public virtual void Save(IEnumerable<T> items)
+		public void Save(IEnumerable<T> items)
 		{
-			/*foreach (var item in items)
+			foreach (var item in items)
 			{
 				MarkToSaveOrUpdate(item);
 			}
-			Context.SaveChanges();*/
+			Context.SaveChanges();
 
-			Context.BulkInsert(items);
+			//Context.BulkInsert(items);
 		}
 
 		private void MarkToSaveOrUpdate(T item)
@@ -142,8 +142,10 @@ namespace NetLifeFighting.KnowTests.DAL.EntityFramework
 			{
 				Entities.Add(item);
 			}
-
-			entry.State = EntityState.Modified;
+			else
+			{
+				entry.State = EntityState.Modified;
+			}
 		}
 
 		private void MarkToSaveOrUpdate(object item)
