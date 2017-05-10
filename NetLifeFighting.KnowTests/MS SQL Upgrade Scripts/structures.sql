@@ -265,6 +265,38 @@ if not exists (
 end
 GO
 
+-- информация о тестах
+if not exists (	
+			select 1 
+			from INFORMATION_SCHEMA.TABLES 
+			where TABLE_TYPE='BASE TABLE' and TABLE_NAME='TestData'
+	) begin
+	
+	create table TestData (
+		DataId int identity(1, 1),
+		TestId int not null,
+		PersonId int not null,
+		TestRegime int not null,
+		-- пока эти поля не будут учитываться
+		Startdate datetime,
+		Enddate datetime,
+		LevelOfDifficulty char(1) not null default('S'),
+		
+		CONSTRAINT [PK_TestData] PRIMARY KEY (
+			DataId ASC
+		),
+		
+		CONSTRAINT [FK_TestData_Test]
+			FOREIGN KEY (TestId)
+			REFERENCES Test(TestId),
+			
+		CONSTRAINT [FK_TestData_Person]
+			FOREIGN KEY (PersonId)
+			REFERENCES Person(PersonId),
+	);
+end
+GO
+
 -- ответы пользователя
 if not exists (	
 			select 1 
@@ -273,33 +305,27 @@ if not exists (
 	) begin
 	
 	create table PersonAnswer (
-		PersonId int not null,
-		TestId int not null,
+		DataId int not null,
 		QuestId int not null,
 		AnswerId int not null,
 		PriorityNo int,
 		AnswerTime int
 
 		CONSTRAINT [PK_PersonAnswer] PRIMARY KEY (
-			PersonId ASC,
-			TestId ASC,
+			DataId ASC,
 			QuestId ASC,
 			AnswerId ASC
 		),
 
-		CONSTRAINT FK1_Person
-			FOREIGN KEY (PersonId)
-			REFERENCES Person(PersonId),
-
-		CONSTRAINT FK2_Test
-			FOREIGN KEY (TestId)
-			REFERENCES Test(TestId),
+		CONSTRAINT FK_PersonAnswer_TestData
+			FOREIGN KEY (DataId)
+			REFERENCES TestData(DataId),
 			
-		CONSTRAINT FK3_Question
+		CONSTRAINT FK_PersonAnswer_Question
 			FOREIGN KEY (QuestId)
 			REFERENCES Question(QuestId),
 
-		CONSTRAINT FK4_Answer
+		CONSTRAINT FK_PersonAnswer_Answer
 			FOREIGN KEY (AnswerId)
 			REFERENCES Answer(AnswerId)
 	);
@@ -312,6 +338,7 @@ insert into [Person] (NICKNAME, [PASSWORD]) values ('_testPerson_', 'e10adc3949b
 
 /* очистка
 	drop TABLE PersonAnswer;
+	drop table TestData;
 	drop table Person;
 	drop table TestQuestion;
 	drop table QuestAnswerAttachment;
