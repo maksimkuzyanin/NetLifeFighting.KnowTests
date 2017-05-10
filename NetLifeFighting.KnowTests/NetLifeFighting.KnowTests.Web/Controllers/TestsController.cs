@@ -74,10 +74,10 @@ namespace NetLifeFighting.KnowTests.Web.Controllers
 			PersonAnswer[] setPersonAnswers = personAnswers.Select(GetPersonAnswerShort).ToArray();
 
 			// идентификатор персоны
-			var personId = setPersonAnswers.First().PersonId;
+			var personId = setPersonAnswers.First().Data.PersonId;
 
 			// идентификатор теста
-			var testId = setPersonAnswers.First().TestId;
+			var testId = setPersonAnswers.First().Data.TestId;
 
 			// сохранить результат в базу
 			_personDao.SaveTestResult(personId, testId, setPersonAnswers);
@@ -87,8 +87,11 @@ namespace NetLifeFighting.KnowTests.Web.Controllers
 		{
 			return new PersonAnswer
 			{
-				PersonId = personAnswer.PersonId,
-				TestId = personAnswer.TestId,
+				Data = new TestData
+				{
+					PersonId = personAnswer.PersonId,
+					TestId = personAnswer.TestId
+				},
 				QuestId = personAnswer.QuestId,
 				AnswerId = personAnswer.AnswerId,
 				PriorityNo = personAnswer.PriorityNo

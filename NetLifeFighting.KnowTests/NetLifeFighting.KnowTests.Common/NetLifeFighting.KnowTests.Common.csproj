@@ -82,6 +82,7 @@
     <Compile Include="ObjectModel\EntityFramework\QuestAttachment.cs" />
     <Compile Include="ObjectModel\EntityFramework\Question.cs" />
     <Compile Include="ObjectModel\EntityFramework\Test.cs" />
+    <Compile Include="ObjectModel\EntityFramework\TestData.cs" />
     <Compile Include="ObjectModel\EntityFramework\TestQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

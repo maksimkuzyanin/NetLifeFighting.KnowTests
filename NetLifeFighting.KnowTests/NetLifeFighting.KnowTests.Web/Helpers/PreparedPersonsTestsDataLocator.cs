@@ -192,7 +192,7 @@ namespace NetLifeFighting.KnowTests.Web.Helpers
 				
 				// группировка по ключу идентификатор теста - идентфикатор вопроса
 				.GroupBy(x => new { 
-					x.TestId,
+					x.Data.TestId,
 					TestQuestId = x.Question.GroupQuestId ?? x.QuestId 
 				})
 

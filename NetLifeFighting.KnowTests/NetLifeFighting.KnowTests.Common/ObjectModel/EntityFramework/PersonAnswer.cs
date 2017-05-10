@@ -10,40 +10,28 @@ namespace NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework
 	public class PersonAnswer
 	{
 		/// <summary>
-		/// Идентификатор пользователя
+		/// Идентификатор данных о тестировании
 		/// </summary>
 		[Key, Column(Order = 1)]
-		public virtual int PersonId { get; set; }
-
-		/// <summary>
-		/// Идентификатор теста
-		/// </summary>
-		[Key, Column(Order = 2)]
-		public virtual int TestId { get; set; }
+		public virtual int DataId { get; set; }
 
 		/// <summary>
 		/// Идентификатор вопроса
 		/// </summary>
-		[Key, Column(Order = 3)]
+		[Key, Column(Order = 2)]
 		public virtual int QuestId { get; set; }
 
 		/// <summary>
 		/// Идентификатор ответа
 		/// </summary>
-		[Key, Column(Order = 4)]
+		[Key, Column(Order = 3)]
 		public virtual int AnswerId { get; set; }
 
 		/// <summary>
-		/// Пользователь
+		/// Данные тестирования
 		/// </summary>
-		[ForeignKey("PersonId")]
-		public virtual Person Person { get; set; }
-
-		/// <summary>
-		/// Тест
-		/// </summary>
-		[ForeignKey("TestId")]
-		public virtual Test Test { get; set; }
+		[ForeignKey("DataId")]
+		public virtual TestData Data { get; set; }
 
 		/// <summary>
 		/// Вопрос

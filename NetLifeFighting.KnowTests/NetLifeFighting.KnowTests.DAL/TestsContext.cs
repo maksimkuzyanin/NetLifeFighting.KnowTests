@@ -62,6 +62,11 @@ namespace NetLifeFighting.KnowTests.DAL
 		/// </summary>
 		public DbSet<QuestAnswerAttachment> QuestAnswerAttachments { get; set; }
 
+		/// <summary>
+		/// Данные о тестировании
+		/// </summary>
+		public DbSet<TestData> TestDatas { get; set; } 
+
 		/*protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
 			// настройки для маппинга

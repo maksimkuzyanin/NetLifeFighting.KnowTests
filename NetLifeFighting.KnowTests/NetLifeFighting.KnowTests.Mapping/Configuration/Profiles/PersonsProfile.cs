@@ -15,8 +15,8 @@ namespace NetLifeFighting.KnowTests.Mapping.Configuration.Profiles
 				.ForMember(dest => dest.PersonAnswers, opt => opt.MapFrom(src => src.PersonAnswers));
 
 			CreateMap<PersonAnswer, PersonAnswerDto>()
-				.ForMember(dest => dest.PersonId, opt => opt.MapFrom(src => src.PersonId))
-				.ForMember(dest => dest.TestId, opt => opt.MapFrom(src => src.TestId))
+				.ForMember(dest => dest.PersonId, opt => opt.MapFrom(src => src.Data.PersonId))
+				.ForMember(dest => dest.TestId, opt => opt.MapFrom(src => src.Data.TestId))
 				.ForMember(dest => dest.QuestId, opt => opt.MapFrom(src => src.QuestId))
 				.ForMember(dest => dest.AnswerId, opt => opt.MapFrom(src => src.AnswerId))
 				.ForMember(dest => dest.PriorityNo, opt => opt.MapFrom(src => src.PriorityNo));
