@@ -34,7 +34,8 @@
 						<span><b>Редактирование пользователей</b></span>
 					</div>
 					<div class="bs-label bg-red">-14%</div>
-					<div class="center-div sparkline-big-alt"><canvas width="268" height="110" style="display: inline-block; width: 268px; height: 110px; vertical-align: top;"></canvas></div>
+					<div class="center-div sparkline-big-alt"><canvas width="268" height="110" style="display: inline-block; width: 268px; height: 110px; vertical-align: top;"></canvas>
+					</div>
 					<div class="row list-grade">
 						<div class="col-md-2">M</div>
 						<div class="col-md-2">T</div>
@@ -53,6 +54,94 @@
 					<a href="#" class="btn btn-default float-right tooltip-button" data-placement="top" title="" data-original-title="View details">
 						<i class="glyph-icon icon-angle-right"></i>
 					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="wrapper" class="in">
+		<div id="page-wrapper">
+			<!-- Заголовок -->
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="page-header">
+						Панель администрирования
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-file-excel-o fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">1</div>
+									<div>Импортировано файлов</div>
+								</div>
+							</div>
+						</div>
+						<a href="javascript:void(0)" ng-click="importTests();">
+							<div class="panel-footer">
+								<span class="pull-left">Импорт</span>
+								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+								<div class="clearfix"></div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
+							<div class="pull-right">
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+										Actions
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu pull-right" role="menu">
+										<li>
+											<a href="#">Action</a>
+										</li>
+										<li>
+											<a href="#">Another action</a>
+										</li>
+										<li>
+											<a href="#">Something else here</a>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<a href="#">Separated link</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!-- /.panel-heading -->
+						<div class="panel-body">
+							<div id="morris-area-chart" style="position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+								<svg height="342" version="1.1" width="650" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.2.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text x="50.5" y="308" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0</tspan></text><path fill="none" stroke="#aaaaaa" d="M63,308H625" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="50.5" y="237.25" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">7,500</tspan></text><path fill="none" stroke="#aaaaaa" d="M63,237.25H625" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="50.5" y="166.5" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">15,000</tspan></text><path fill="none" stroke="#aaaaaa" d="M63,166.5H625" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="50.5" y="95.75" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">22,500</tspan></text><path fill="none" stroke="#aaaaaa" d="M63,95.75H625" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="50.5" y="25" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">30,000</tspan></text><path fill="none" stroke="#aaaaaa" d="M63,25H625" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="521.2041312272174" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2012</tspan></text><text x="271.95747266099636" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2011</tspan></text><path fill="#7cb57c" stroke="none" d="M63,257.8807C78.70595382746052,252.69236666666666,110.11786148238153,241.9253958333333,125.82381530984205,237.12736666666666C141.52976913730257,232.3293375,172.94167679222357,226.06474717668488,188.6476306196841,219.49646666666666C204.18286755771567,212.9995805100182,235.25334143377887,186.80528908839776,250.78857837181044,184.86669999999998C266.15309842041313,182.94941408839776,296.88213851761844,202.66302023809524,312.24665856622113,204.07296666666667C327.95261239368165,205.51424523809524,359.3645200486026,195.3117583333333,375.07047387606315,196.27159999999998C390.77642770352367,197.23144166666665,422.1883353584447,228.79010418943534,437.8942891859052,211.7517C453.4295261239368,194.89849585610202,484.5,68.92631666666665,500.0352369380316,60.705166666666656C515.5704738760631,52.484016666666655,546.6409477521263,133.9280789162113,562.1761846901579,145.9825C577.8821385176184,158.16938724954463,609.2940461725395,154.748425,625,157.6704L625,308L63,308Z" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></path><path fill="none" stroke="#4da74d" d="M63,257.8807C78.70595382746052,252.69236666666666,110.11786148238153,241.9253958333333,125.82381530984205,237.12736666666666C141.52976913730257,232.3293375,172.94167679222357,226.06474717668488,188.6476306196841,219.49646666666666C204.18286755771567,212.9995805100182,235.25334143377887,186.80528908839776,250.78857837181044,184.86669999999998C266.15309842041313,182.94941408839776,296.88213851761844,202.66302023809524,312.24665856622113,204.07296666666667C327.95261239368165,205.51424523809524,359.3645200486026,195.3117583333333,375.07047387606315,196.27159999999998C390.77642770352367,197.23144166666665,422.1883353584447,228.79010418943534,437.8942891859052,211.7517C453.4295261239368,194.89849585610202,484.5,68.92631666666665,500.0352369380316,60.705166666666656C515.5704738760631,52.484016666666655,546.6409477521263,133.9280789162113,562.1761846901579,145.9825C577.8821385176184,158.16938724954463,609.2940461725395,154.748425,625,157.6704" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="63" cy="257.8807" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="125.82381530984205" cy="237.12736666666666" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="188.6476306196841" cy="219.49646666666666" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="250.78857837181044" cy="184.86669999999998" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="312.24665856622113" cy="204.07296666666667" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="375.07047387606315" cy="196.27159999999998" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="437.8942891859052" cy="211.7517" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="500.0352369380316" cy="60.705166666666656" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="562.1761846901579" cy="145.9825" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="625" cy="157.6704" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><path fill="#a8b4bd" stroke="none" d="M63,282.8507333333333C78.70595382746052,277.1765833333333,110.11786148238153,265.12432083333334,125.82381530984205,260.15413333333333C141.52976913730257,255.18394583333333,172.94167679222357,245.80665191256827,188.6476306196841,243.0892333333333C204.18286755771567,240.4013519125683,235.25334143377887,240.71814415285453,250.78857837181044,238.53293333333335C266.15309842041313,236.3717358195212,296.88213851761844,228.73457664835163,312.24665856622113,225.7036C327.95261239368165,222.6052683150183,359.3645200486026,213.88717083333333,375.07047387606315,214.01569999999998C390.77642770352367,214.14422916666666,422.1883353584447,239.86483752276868,437.8942891859052,226.73183333333333C453.4295261239368,213.74157918943533,484.5,117.22498333333331,500.0352369380316,109.52266666666665C515.5704738760631,101.82034999999999,546.6409477521263,157.02737399817852,562.1761846901579,165.1133C577.8821385176184,173.28808233151184,609.2940461725395,172.20245,625,174.5655L625,308L63,308Z" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></path><path fill="none" stroke="#7a92a3" d="M63,282.8507333333333C78.70595382746052,277.1765833333333,110.11786148238153,265.12432083333334,125.82381530984205,260.15413333333333C141.52976913730257,255.18394583333333,172.94167679222357,245.80665191256827,188.6476306196841,243.0892333333333C204.18286755771567,240.4013519125683,235.25334143377887,240.71814415285453,250.78857837181044,238.53293333333335C266.15309842041313,236.3717358195212,296.88213851761844,228.73457664835163,312.24665856622113,225.7036C327.95261239368165,222.6052683150183,359.3645200486026,213.88717083333333,375.07047387606315,214.01569999999998C390.77642770352367,214.14422916666666,422.1883353584447,239.86483752276868,437.8942891859052,226.73183333333333C453.4295261239368,213.74157918943533,484.5,117.22498333333331,500.0352369380316,109.52266666666665C515.5704738760631,101.82034999999999,546.6409477521263,157.02737399817852,562.1761846901579,165.1133C577.8821385176184,173.28808233151184,609.2940461725395,172.20245,625,174.5655" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="63" cy="282.8507333333333" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="125.82381530984205" cy="260.15413333333333" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="188.6476306196841" cy="243.0892333333333" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="250.78857837181044" cy="238.53293333333335" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="312.24665856622113" cy="225.7036" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="375.07047387606315" cy="214.01569999999998" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="437.8942891859052" cy="226.73183333333333" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="500.0352369380316" cy="109.52266666666665" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="562.1761846901579" cy="165.1133" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="625" cy="174.5655" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><path fill="#2677b5" stroke="none" d="M63,282.8507333333333C78.70595382746052,282.5866,110.11786148238153,284.44260833333334,125.82381530984205,281.7942C141.52976913730257,279.14579166666664,172.94167679222357,262.8360351548269,188.6476306196841,261.66346666666664C204.18286755771567,260.50364348816026,235.25334143377887,274.71505662983424,250.78857837181044,272.4646333333333C266.15309842041313,270.2389399631676,296.88213851761844,245.97829532967035,312.24665856622113,243.75900000000001C327.95261239368165,241.490386996337,359.3645200486026,252.16645833333334,375.07047387606315,254.513C390.77642770352367,256.8595416666667,422.1883353584447,273.67962604735885,437.8942891859052,262.53133333333335C453.4295261239368,251.50421771402551,484.5,172.7295375,500.0352369380316,165.81136666666666C515.5704738760631,158.89319583333332,546.6409477521263,199.3979123406193,562.1761846901579,207.18596666666667C577.8821385176184,215.059604007286,609.2940461725395,223.14009166666668,625,228.45813333333334L625,308L63,308Z" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></path><path fill="none" stroke="#0b62a4" d="M63,282.8507333333333C78.70595382746052,282.5866,110.11786148238153,284.44260833333334,125.82381530984205,281.7942C141.52976913730257,279.14579166666664,172.94167679222357,262.8360351548269,188.6476306196841,261.66346666666664C204.18286755771567,260.50364348816026,235.25334143377887,274.71505662983424,250.78857837181044,272.4646333333333C266.15309842041313,270.2389399631676,296.88213851761844,245.97829532967035,312.24665856622113,243.75900000000001C327.95261239368165,241.490386996337,359.3645200486026,252.16645833333334,375.07047387606315,254.513C390.77642770352367,256.8595416666667,422.1883353584447,273.67962604735885,437.8942891859052,262.53133333333335C453.4295261239368,251.50421771402551,484.5,172.7295375,500.0352369380316,165.81136666666666C515.5704738760631,158.89319583333332,546.6409477521263,199.3979123406193,562.1761846901579,207.18596666666667C577.8821385176184,215.059604007286,609.2940461725395,223.14009166666668,625,228.45813333333334" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="63" cy="282.8507333333333" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="125.82381530984205" cy="281.7942" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="188.6476306196841" cy="261.66346666666664" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="250.78857837181044" cy="272.4646333333333" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="312.24665856622113" cy="243.75900000000001" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="375.07047387606315" cy="254.513" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="437.8942891859052" cy="262.53133333333335" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="500.0352369380316" cy="165.81136666666666" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="562.1761846901579" cy="207.18596666666667" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="625" cy="228.45813333333334" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle></svg><div class="morris-hover morris-default-style" style="left: 68.9879px; top: 178px; display: none;">
+									<div class="morris-hover-row-label">2010 Q2</div><div class="morris-hover-point" style="color: #0b62a4">
+										iPhone:
+										2,778
+									</div><div class="morris-hover-point" style="color: #7A92A3">
+										iPad:
+										2,294
+									</div><div class="morris-hover-point" style="color: #4da74d">
+										iPod Touch:
+										2,441
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /.panel-body -->
+					</div>
 				</div>
 			</div>
 		</div>
