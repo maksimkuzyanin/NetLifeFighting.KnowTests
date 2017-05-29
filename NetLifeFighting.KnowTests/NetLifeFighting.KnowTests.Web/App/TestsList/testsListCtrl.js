@@ -1,6 +1,9 @@
 ﻿var app = angular.module('app');
 
-app.controller('testsListCtrl', function ($scope, $http, $location) {
+app.controller('testsListCtrl', function ($scope, $http, navigation) {
+
+	// по умолчанию режим обучающий
+	$scope.testRegime = 1;
 
 	// получить список тестов
 	$scope.init = function () {
@@ -22,9 +25,16 @@ app.controller('testsListCtrl', function ($scope, $http, $location) {
 			});
 	};
 
+	// срабатывает при выборе радиокнопки
+	$scope.onChange = function () {
+		var self = Window.event.target;
+		$scope.testRegime = self.value;
+	}
+
 	// прокидывает на тест
 	$scope.goExam = function (testId) {
-		// 
-		$location.path('/Test').search({ testId: testId });
+		// определить режим
+
+		navigation.goToPage('/Test', { testId: testId });
 	};
 });

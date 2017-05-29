@@ -12,7 +12,7 @@ namespace NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework
 	{
 		public Person()
 		{
-			PersonAnswers = new HashSet<PersonAnswer>();
+			//PersonAnswers = new HashSet<PersonAnswer>();
 		}
 
 		/// <summary>
@@ -34,7 +34,7 @@ namespace NetLifeFighting.KnowTests.Common.ObjectModel.EntityFramework
 		/// <summary>
 		/// Ответы пользователя
 		/// </summary>
-		public virtual ISet<PersonAnswer> PersonAnswers { get; set; }
+		//public virtual ISet<PersonAnswer> PersonAnswers { get; set; }
 
 		public virtual int RoleType { get; set; }
 

@@ -12,6 +12,7 @@
 					<th>Количество вопросов</th>
 					<th>Время</th>
 					<th>Текущий результат</th>
+					<th>Режим тестирования</th>
 					<th>&nbsp;</th>
 				</tr>
 				<tr ng-repeat="preparedTest in preparedTests">
@@ -22,6 +23,36 @@
 						<span class="label label-success" ng-if="preparedTest.personTestResult">
 							{{preparedTest.personTestResult.rightQuests}} / {{preparedTest.questsCount}}
 						</span>
+					</td>
+					<td>
+						<div class="">
+							<div class="radio">
+								<label>
+									<input type="radio" name="TESTREGIME" value="1" ng-click="onChange();" checked>
+									Тренировочный
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="TESTREGIME" value="2" ng-click="onChange();">
+									Экзаменационный
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="TESTREGIME" value="3" ng-click="onChange();">
+									Экзаменационный на время
+								</label>
+							</div>
+						</div>
+							
+
+							<!--<input type="radio"/> Простой
+
+							<input type="radio"/> Средний
+
+							<input type="radio"/> Сложный-->
+
 					</td>
 					<td class="text-center">
 						<button type="button" class="btn btn-success" ng-click="goExam(preparedTest.test.testId)">Начать тестирование</button>
