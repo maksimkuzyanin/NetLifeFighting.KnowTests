@@ -1,6 +1,6 @@
 ﻿var app = angular.module('app');
 
-app.controller('testCtrl', function ($scope, $http, $rootScope, $location, $window, $q, authentication) {
+app.controller('testCtrl', function ($scope, $http, $rootScope, $location, $window, $q, authentication, storage) {
 
 	// приватные методы 
 
@@ -78,6 +78,7 @@ app.controller('testCtrl', function ($scope, $http, $rootScope, $location, $wind
 		$window.sessionStorage.removeItem('personAnswers');
 		$window.sessionStorage.removeItem('testResult');
 		$window.sessionStorage.removeItem('testId');
+		$window.sessionStorage.removeItem('testRegime');
 	};
 
 	$scope.goToPage = function (path) {
@@ -101,6 +102,13 @@ app.controller('testCtrl', function ($scope, $http, $rootScope, $location, $wind
 		} else {
 			$scope.testId = $window.sessionStorage.testId;
 		}
+		// переинициализация
+		$scope.testRegime = storage.getOrCreate("testRegime", $scope.testRegime);
+
+		// вычисление режима тестирования
+		$scope.trainingMode = $scope.testRegime === 1;
+		$scope.examMode = $scope.testRegime === 2;
+		$scope.timeExamMode = $scope.testRegime === 3;
 
 		// пользователь
 		$scope.person = authentication.getPerson();
@@ -244,6 +252,11 @@ app.controller('testCtrl', function ($scope, $http, $rootScope, $location, $wind
 
 		$scope.currentPreparedQuest = $scope.preparedQuestions[$scope.currentPreparedQuestIndex];
 	};
+
+	// утвердить ответ, если тренировочный режим
+	$scope.approve = function() {
+		
+	}
 
 	// сохраняет результаты тестов
 	$scope.save = function () {

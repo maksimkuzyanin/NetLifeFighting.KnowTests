@@ -214,6 +214,7 @@
     <Content Include="App\Services\application.js" />
     <Content Include="App\Services\authentication.js" />
     <Content Include="App\Services\navigation.js" />
+    <Content Include="App\Services\storage.js" />
     <Content Include="App\Test\testCtrl.js" />
     <Content Include="App\Test\Index.html" />
     <Content Include="App\Index.html" />
