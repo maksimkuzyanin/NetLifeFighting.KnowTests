@@ -91,6 +91,8 @@ app.controller('testCtrl', function ($scope, $http, $rootScope, $location, $wind
 
 		// идентификатор теста
 		$scope.testId = searchObject["testId"];
+		// режим тестирования
+		$scope.testRegime = searchObject["testRegime"];
 
 		// в случае если из параметризованной строки будет удален параметр - идентификатор теста,
 		// взять его из хранилища

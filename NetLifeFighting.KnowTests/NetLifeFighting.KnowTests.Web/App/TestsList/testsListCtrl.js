@@ -26,15 +26,16 @@ app.controller('testsListCtrl', function ($scope, $http, navigation) {
 	};
 
 	// срабатывает при выборе радиокнопки
-	$scope.onChange = function () {
-		var self = Window.event.target;
+	$scope.onChange = function (event) {
+		// кроссбраузерное решение
+		event = event || window.event;
+		var self = event.target;
+		// общий на экране режим тестирования
 		$scope.testRegime = self.value;
 	}
 
 	// прокидывает на тест
 	$scope.goExam = function (testId) {
-		// определить режим
-
-		navigation.goToPage('/Test', { testId: testId });
+		navigation.goToPage('/Test', { testId: testId, testRegime: $scope.testRegime });
 	};
 });
