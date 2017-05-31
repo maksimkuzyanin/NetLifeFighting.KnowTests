@@ -254,8 +254,15 @@ app.controller('testCtrl', function ($scope, $http, $rootScope, $location, $wind
 	};
 
 	// утвердить ответ, если тренировочный режим
-	$scope.approve = function() {
-		
+	$scope.approve = function () {
+		// текущий идентификатор вопроса
+		var currQuestId = $scope.currentPreparedQuest.quest.questid;
+
+		// ? параметры и строка запроса
+		$http.post("api/tests/")
+			.then(function(response) {
+				// здесь добавить цвет
+			});
 	}
 
 	// сохраняет результаты тестов
