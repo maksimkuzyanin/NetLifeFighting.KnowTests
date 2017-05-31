@@ -97,18 +97,14 @@ app.controller('testCtrl', function ($scope, $http, $rootScope, $location, $wind
 
 		// в случае если из параметризованной строки будет удален параметр - идентификатор теста,
 		// взять его из хранилища
-		if ($scope.testId) {
-			$window.sessionStorage.testId = $scope.testId;
-		} else {
-			$scope.testId = $window.sessionStorage.testId;
-		}
 		// переинициализация
+		$scope.testId = storage.getOrCreate("testId", $scope.testId);
 		$scope.testRegime = storage.getOrCreate("testRegime", $scope.testRegime);
 
 		// вычисление режима тестирования
-		$scope.trainingMode = $scope.testRegime === 1;
-		$scope.examMode = $scope.testRegime === 2;
-		$scope.timeExamMode = $scope.testRegime === 3;
+		$scope.trainingMode = $scope.testRegime == 1;
+		$scope.examMode = $scope.testRegime == 2;
+		$scope.timeExamMode = $scope.testRegime == 3;
 
 		// пользователь
 		$scope.person = authentication.getPerson();
