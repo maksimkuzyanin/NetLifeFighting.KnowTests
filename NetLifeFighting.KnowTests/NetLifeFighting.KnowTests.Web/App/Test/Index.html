@@ -108,16 +108,17 @@
 				</div>
 
 				<div class="pager">
-					<div class="next" ng-if="trainingMode">
-						<button class="btn btn-warning" ng-click="approve()">
-							Утвердить <span class="glyphicon glyphicon-circle-arrow-right"></span>
+					
+					<div>
+						<button class="btn btn-success" ng-click="approve()" ng-if="trainingMode">
+							Утвердить <span class="glyphicon glyphicon-ok"></span>
 						</button>
-					</div>
-					<div class="next">
+
 						<button class="btn btn-warning" ng-click="next()">
 							Следующий <span class="glyphicon glyphicon-circle-arrow-right"></span>
 						</button>
 					</div>
+
 				</div>
 
 			</div>
