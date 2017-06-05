@@ -255,7 +255,7 @@ app.controller('testCtrl', function ($scope, $http, $rootScope, $location, $wind
 		var currQuestId = $scope.currentPreparedQuest.quest.questid;
 
 		// ? параметры и строка запроса
-		$http.post("api/tests/")
+		$http.post("api/tests/approve/" + currQuestId)
 			.then(function(response) {
 				// здесь добавить цвет
 			});

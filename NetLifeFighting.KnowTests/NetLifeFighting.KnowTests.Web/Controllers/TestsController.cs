@@ -83,6 +83,18 @@ namespace NetLifeFighting.KnowTests.Web.Controllers
 			_personDao.SaveTestResult(personId, testId, setPersonAnswers);
 		}
 
+		[HttpGet]
+		[Route("approve/{currQuestId}")]
+		public Result<QuestionDto> ApproveQuesResult(int currQuestId)
+		{
+			// правильные ответы
+			var currQuest = _questionDao.GetById(currQuestId);
+			var rightAnswers = currQuest.QuestsAnswers.Where(x => x.IsRight);
+			// приводится к дтошке
+			//AnswerDto[] answersDto = Mapper.Map(rightAnswers);
+			//return new Result<QuestionDto>(answersDto);
+		}
+
 		private PersonAnswer GetPersonAnswerShort(PersonAnswerDto personAnswer)
 		{
 			return new PersonAnswer
