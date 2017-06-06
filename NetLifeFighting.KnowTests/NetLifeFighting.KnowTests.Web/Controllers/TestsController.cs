@@ -85,14 +85,15 @@ namespace NetLifeFighting.KnowTests.Web.Controllers
 
 		[HttpGet]
 		[Route("approve/{currQuestId}")]
-		public Result<QuestionDto> ApproveQuesResult(int currQuestId)
+		public Result<AnswerDto[]> ApproveQuesResult(int currQuestId)
 		{
 			// правильные ответы
 			var currQuest = _questionDao.GetById(currQuestId);
 			var rightAnswers = currQuest.QuestsAnswers.Where(x => x.IsRight);
+			
 			// приводится к дтошке
-			//AnswerDto[] answersDto = Mapper.Map(rightAnswers);
-			//return new Result<QuestionDto>(answersDto);
+			var answersDto = rightAnswers.Select(Mapper.Map<AnswerDto>).ToArray();
+			return new Result<AnswerDto[]>(answersDto);
 		}
 
 		private PersonAnswer GetPersonAnswerShort(PersonAnswerDto personAnswer)
